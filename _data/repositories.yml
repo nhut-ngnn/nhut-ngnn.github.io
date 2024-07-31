@@ -1,14 +1,9 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - nhut-ngnn
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - nhut-ngnn/Voice-Based-Age-and-Gender-recognize-A-Comparative-Study-of-LSTM-RezoNet-and-Hybrid-CNNs-BiLSTM
+  - nhut-ngnn/Age-and-Gender-Recognize-System-using-LSTM
+  - nhut-ngnn/Face_Recognize_and_Tracking
