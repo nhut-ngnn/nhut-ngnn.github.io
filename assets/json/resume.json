@@ -27,20 +27,20 @@
       "name": "AI Technology and Application Research Lab, FPT University",
       "position": "Ungraduated Research Assistants",
       "url": "https://aita-lab.github.io/",
-      "startDate": "1933-04-05",
+      "startDate": "2024-04-05",
       "endDate": "",
       "summary": "Conducting research in machine learning, deep learning, computer vision, and speech processing to develop and enhance AI-driven solutions for visual and auditory data analysis."
     }
   ],
   "education": [
     {
-      "institution": "FPT University, Vietnam",
-      "location": "Ho Chi Minh City, Vietname",
+      "institution": "FPT University, Ho Chi Minh City Campus",
+      "location": "Vietnam",
       "url": "https://university.fpt.edu.vn/",
-      "area": "Information of Technology",
-      "studyType": "B.Sc",
-      "startDate": "2022-10-01",
-      "endDate": "2026-10-01",
+      "area": "Artificial Intelligence",
+      "studyType": "Bachelor of Science",
+      "startDate": "2022",
+      "endDate": "2026",
       "score": "8.4"
      }
   ],
