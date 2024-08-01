@@ -2,18 +2,18 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
+      value: Nguyen Minh Nhut
     - name: Date of Birth
-      value: 14th March 1879
+      value: 5th March 2004
     - name: Languages
-      value: English, German
+      value: Vietnamese, English
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: B.Sc
+      institution: FPT Univesity, Ho Chi Minh Campus
+      year: 2026
       description:
         - Description 1.
         - Description 2.
