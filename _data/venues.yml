@@ -7,3 +7,10 @@
 
 "Vision":
   color: "#009f36"
+
+"ICTC":
+  url: https://ictc.org/
+  color: "#215d42"
+
+"Preprint":
+  color: "#0d93bf"
