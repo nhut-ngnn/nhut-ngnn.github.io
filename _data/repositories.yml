@@ -5,7 +5,8 @@ repo_description_lines_max: 2
 
 github_repos:
   - nhut-ngnn/Voice-Based-Age-and-Gender-recognize-A-Comparative-Study-of-LSTM-RezoNet-and-Hybrid-CNNs-BiLSTM
+  - aita-lab/awesome-multimodal-fusion-emotion-recognition
+  - trungtndev/handwritten_mathematical_expressions_with_multi_task_learning
   - nhut-ngnn/Age-and-Gender-Recognize-System-using-LSTM
   - nhut-ngnn/Face_Recognize_and_Tracking
   - nhut-ngnn/Multimodal-Speech-Emotion-Recognition
-  
