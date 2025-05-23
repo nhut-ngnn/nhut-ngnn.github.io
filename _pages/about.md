@@ -16,8 +16,10 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-**Short Bio:** My name is ``Nguyen Minh Nhut`` (*Nguyễn Minh Nhựt* - Vietnamese). I am a dedicated undergraduate student pursuing a B.Sc. degree in Artificial Intelligence from <a href='https://university.fpt.edu.vn/'> `FPT University, Ho Chi Minh Campus`</a>. As an enthusiastic research assistant in the field of artificial intelligence, Nguyen is passionate about advancing technologies that enhance human-computer interaction. My primary research interests lie in machine learning and deep learning, with a particular focus on their applications in speech processing and computer vision.
+**Short Bio:** My name is **Nguyen Minh Nhut** (*Nguyễn Minh Nhựt* - Vietnamese), and I am currently an undergraduate student pursuing a Bachelor of Science degree in **Artificial Intelligence** at [**FPT University, Ho Chi Minh Campus**](https://university.fpt.edu.vn/). I am deeply passionate about exploring the theoretical foundations and practical applications of artificial intelligence, with a strong academic and research focus on **machine learning**, **deep learning**, **speech processing**, and **computer vision**.
 
-I am currently working as an Undergraduated AI researcher under the guidance of <a href='https://dnmduc.github.io/'>`Dr. Duc Ngoc Minh Dang`</a>, where he continues to explore and contribute to cutting-edge developments in AI.
+Since the beginning of my academic journey, I have been committed to understanding how intelligent systems can be designed to better perceive, interpret, and interact with human users. As a research assistant, I actively engage in developing AI-driven solutions that enhance **human-computer interaction**, aiming to bridge the gap between computational intelligence and real-world communication systems.
 
-**Research Interests:** Deep Learning, Speech Processing, Human-Computer Interaction, Computer Vision.
+I am currently working under the guidance of [**Dr. Duc Ngoc Minh Dang**](https://dnmduc.github.io/), a respected researcher in the field of artificial intelligence. Under his mentorship, I have been involved in multiple research projects that investigate **multimodal emotion recognition**, **graph-based neural networks**, and advanced learning techniques for **speech and visual understanding**. This experience has not only sharpened my technical skills in deep neural architectures and data modeling but has also nurtured a deeper appreciation for interdisciplinary AI research.
+
+**Research Interests:** Deep Learning, Speech and Audio Processing, Human-Centered AI, Multimodal Emotion Recognition, Human-Computer Interaction, Graph Neural Networks.
