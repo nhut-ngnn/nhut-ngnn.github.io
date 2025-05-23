@@ -20,4 +20,4 @@ social: true # includes social icons at the bottom of the page
 
 I am currently working as an Undergraduated AI researcher under the guidance of <a href='https://dnmduc.github.io/'>`Dr. Duc Ngoc Minh Dang`</a>, where he continues to explore and contribute to cutting-edge developments in AI.
 
-**Research Interests:** Deep Learning, Speech Processing, Computer Vision.
+**Research Interests:** Deep Learning, Speech Processing, Human-Computer Interaction, Computer Vision.
