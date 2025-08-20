@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 📰 Paper Accepted: "HemoGAT: Heterogeneous Multimodal Speech Emotion Recognition with Cross-Modal Transformer and Graph Attention Network"
-date: 2025-07-25 15:59:00-0400
+date: 2025-08-01 15:59:00-0400
 inline: false
 related_posts: false
 ---
