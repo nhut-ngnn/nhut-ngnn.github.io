@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 📰 03 paper is accepted at The 25th Asia-Pacific Network Operations and Management Symposium, Kaohsiung, Taiwan.
+title: 📰 03 paper is accepted at The 25th Asia-Pacific Network Operations and Management Symposium (Rank C - ICORE), Kaohsiung, Taiwan.
 date: 2025-08-01 15:59:00-0400
 inline: false
 related_posts: false
