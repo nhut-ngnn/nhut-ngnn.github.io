@@ -6,7 +6,7 @@ inline: false
 related_posts: false
 ---
 ---
-I’m thrilled to announce that three of our papers have been accepted to the **17th International Conference on Management of Digital Ecosystems** in Kaohsiung, Taiwan:
+I’m thrilled to announce that three of our papers have been accepted to the **17th International Conference on Management of Digital Ecosystems** in Ho Chi Minh City, Vietnam:
 
 1. **GloMER: Towards Robust Multimodal Emotion Recognition via Gated Fusion and Contrastive Learning** - A novel multimodal SER architecture that integrates a self-alignment strategy with contrastive learning and a Gated Multimodal Unit (GMU) for adaptive fusion.  
    *Authors:* Nhut Minh Nguyen, Duc Tai Phan, Duc Ngoc Minh Dang (FPT University, Ho Chi Minh, Vietnam)
