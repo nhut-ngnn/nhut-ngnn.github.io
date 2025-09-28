@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 📰 02 paper is accepted at The 17th International Conference on Management of Digital Ecosystems (Rank C - ICORE), Ho Chi Minh City, Vietnam.
+title: 📰 02 paper is accepted at The 17th International Conference on Management of Digital Ecosystems (Rank C - CORE), Ho Chi Minh City, Vietnam.
 date: 2025-09-26 15:59:00-0400
 inline: false
 related_posts: false
