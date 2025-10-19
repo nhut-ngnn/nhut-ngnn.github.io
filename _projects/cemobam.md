@@ -1,6 +1,6 @@
 ---
 layout: page
-title: CemoBAM Demo
+title: CemoBAM
 description: Multimodal emotion recognition with cross-modal heterogeneous graphs and CBAM fusion.
 permalink: /projects/cemobam/
 img: assets/img/publication_preview/CemoBAM.jpg
@@ -30,8 +30,24 @@ hide_description: true
       <a class="btn btn-outline-primary m-1" href="https://github.com/nhut-ngnn/CemoBAM" target="_blank" rel="noopener">Code</a>
       <a class="btn btn-outline-secondary m-1" href="#cemobam-citation">BibTeX</a>
     </div>
-    <div class="mt-4">
+  </div>
+</section>
+
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Abstract</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <p class="text-justify small">
+          Multimodal Speech Emotion Recognition (SER) offers significant advantages over unimodal approaches by integrating diverse information streams such as audio and text. However, effectively fusing these heterogeneous modalities remains a significant challenge. We propose CemoBAM, a novel dualstream architecture that effectively integrates the Heterogeneous Graph Attention Network (CH-GAT) with the Cross-modal Convolutional Block Attention Mechanism (xCBAM). In CemoBAM architecture, the CH-GAT constructs a heterogeneous graph that models intra- and inter-modal relationships, employing multi-head attention to capture fine-grained dependencies across audio and text feature embeddings. The xCBAM enhances feature refinement through a cross-modal transformer with a modified 1D-CBAM, employing bidirectional cross-attention and channel-spatial attention to emphasize emotionally salient features. The CemoBAM architecture surpasses previous state-of-the-art (SOTA) methods by 0.32% on IEMOCAP and 3.25% on ESD datasets. Comprehensive ablation studies validate the impact of Top-K graph construction parameters, fusion strategies, and the complementary contributions of both modules. The results highlight CemoBAM’s robustness and potential for advancing multimodal SER applications.
+        </p>
+      </div>
+      <div class="mt-4 text-center">
       {% include figure.liquid loading="eager" path="assets/img/publication_preview/CemoBAM.jpg" alt="CemoBAM pipeline overview" class="img-fluid rounded shadow-sm border" %}
+      <p class="mt-2 text-muted"><em>Figure 1. Overview of the CemoBAM pipeline illustrating the CH-GAT and xCBAM fusion process for multimodal emotion recognition.</em></p>
+    </div>
+
     </div>
   </div>
 </section>
@@ -70,21 +86,6 @@ hide_description: true
             </ul>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-4">Motivation &amp; Abstract</h2>
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <p class="lead text-justify">
-          Multimodal Speech Emotion Recognition (SER) benefits from combining audio and text cues, yet existing fusion techniques struggle with heterogeneity and modality imbalance.
-          The APNOMS 2025 paper {% cite nguyen2025CemoBAM %} introduces <strong>CemoBAM</strong> to bridge this gap via a graph-centric perception module and a cross-modal attention enhancer,
-          improving generalisation in low-resource and imbalanced settings.
-        </p>
       </div>
     </div>
   </div>
