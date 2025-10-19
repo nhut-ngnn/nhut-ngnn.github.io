@@ -28,7 +28,7 @@ social: true
           At FPT University (Ho Chi Minh campus) I focus on cross-modal learning, graph neural networks, and robust speech processing.
         </p>
         <div class="d-flex flex-wrap align-items-center">
-          <a class="btn btn-primary mr-2 mb-2" href="{{ '/cv/' | relative_url }}">View CV</a>
+          <a class="btn btn-primary mr-2 mb-2" href="/cv/">View CV</a>
           <a class="btn btn-outline-primary mr-2 mb-2" href="mailto:minhnhut.ngnn@gmail.com">Schedule a chat</a>
           <a class="btn btn-outline-secondary mb-2" href="https://scholar.google.com/citations?user=4zTooQ0AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
         </div>
