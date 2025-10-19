@@ -25,7 +25,7 @@ hide_description: true
     <div class="d-flex justify-content-center flex-wrap gap-2">
       <a class="btn btn-primary m-1" href="https://ieeexplore.ieee.org/document/11181320" target="_blank" rel="noopener">Paper</a>
       <a class="btn btn-outline-primary m-1" href="https://github.com/nhut-ngnn/CemoBAM" target="_blank" rel="noopener">Code</a>
-      <a class="btn btn-outline-secondary m-1" href="https://www.researchgate.net/publication/396327499_CemoBAM_Advancing_Multimodal_Emotion_Recognition_through_Heterogeneous_Graph_Networks_and_Cross-Modal_Attention_Mechanisms?_tp=eyJjb250ZXh0Ijp7InBhZ2UiOiJwcm9maWxlIiwicHJldmlvdXNQYWdlIjoiaG9tZSIsInBvc2l0aW9uIjoicGFnZUNvbnRlbnQifX0" target="_blank" rel="noopener">ResearchGate</a>
+      <a class="btn btn-outline-secondary m-1" href="#cemobam-citation">BibTeX</a>
     </div>
     <div class="mt-4">
       {% include figure.liquid loading="eager" path="assets/img/publication_preview/CemoBAM.jpg" alt="CemoBAM pipeline overview" class="img-fluid rounded shadow-sm border" %}
@@ -74,7 +74,7 @@ hide_description: true
   </div>
 </section>
 
-<section class="py-5">
+<section class="py-5" id="cemobam-citation">
   <div class="container">
     <h2 class="text-center mb-4">Motivation &amp; Abstract</h2>
     <div class="row justify-content-center">
