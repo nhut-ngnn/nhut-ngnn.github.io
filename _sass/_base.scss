@@ -205,6 +205,28 @@ ul.task-list input[type="checkbox"] {
   margin-right: 1rem;
 }
 
+@media (max-width: 575.98px) {
+  .about-page article {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-page article > .clearfix {
+    order: 1;
+  }
+
+  .about-page article > .profile {
+    order: 2;
+    float: none !important;
+    align-self: center;
+    margin-top: 1.5rem;
+  }
+
+  .about-page article > :not(.profile):not(.clearfix) {
+    order: 3;
+  }
+}
+
 @media (min-width: 576px) {
   .profile {
     width: 30%;

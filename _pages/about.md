@@ -18,26 +18,29 @@ hide_header: true
 ---
 
 <!-- prettier-ignore-start -->
-<div class="card shadow-sm border-0 mb-4">
-  <div class="card-body p-4 p-md-5">
-    <div class="row align-items-center">
-      <div class="col-md">
-        <p class="text-uppercase text-primary mb-2">Artificial Intelligence Student &middot; Research Assistant</p>
-        <h1 class="h3 mb-3">Hi, I am Nguyen Minh Nhut.</h1>
-        <p class="lead mb-4">
-          I design multimodal and human-centered AI systems that help machines understand emotion, speech, and intent.
-          At FPT University (Ho Chi Minh campus) I focus on cross-modal learning, graph neural networks, and robust speech processing.
-        </p>
-        <div class="d-flex flex-wrap align-items-center">
-          <a class="btn btn-primary mr-2 mb-2" href="/cv/">View CV</a>
-          <a class="btn btn-outline-primary mr-2 mb-2" href="mailto:minhnhut.ngnn@gmail.com">Schedule a chat</a>
-          <a class="btn btn-outline-secondary mb-2" href="https://scholar.google.com/citations?user=4zTooQ0AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+<section class="about-hero">
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-body p-4 p-md-5">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-11 col-xl-9 mx-auto text-center text-md-left">
+          <p class="text-uppercase text-primary mb-2">Artificial Intelligence Student &middot; Research Assistant</p>
+          <h1 class="h3 mb-3">Hi, I am Nguyen Minh Nhut.</h1>
+          <p class="lead mb-4">
+            I design multimodal and human-centered AI systems that help machines understand emotion, speech, and intent.
+            At FPT University (Ho Chi Minh campus) I focus on cross-modal learning, graph neural networks, and robust speech processing.
+          </p>
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start">
+            <a class="btn btn-primary mr-2 mb-2" href="/cv/">View CV</a>
+            <a class="btn btn-outline-primary mr-2 mb-2" href="mailto:minhnhut.ngnn@gmail.com">Schedule a chat</a>
+            <a class="btn btn-outline-secondary mb-2" href="https://scholar.google.com/citations?user=4zTooQ0AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
+<div class="about-main" markdown="1">
 ## Research Focus
 
 <div class="row">
@@ -75,9 +78,11 @@ hide_header: true
 
 ## Currently Exploring
 
-- Emotion in Conversational Contexts — modeling emotional dynamics throughout human–AI dialogue, enabling systems to perceive, track, and adapt to affective cues in real-time conversations.
+- Emotion in Conversational Contexts &mdash; modeling emotional dynamics throughout human-AI dialogue, enabling systems to perceive, track, and adapt to affective cues in real-time conversations.
 
-- Scalable Graph-Based Multimodal Architectures — designing efficient graph neural networks for real-time inference across heterogeneous modalities (speech, text, and vision) in emotionally rich interactions.
+- Scalable Graph-Based Multimodal Architectures &mdash; designing efficient graph neural networks for real-time inference across heterogeneous modalities (speech, text, and vision) in emotionally rich interactions.
 
-- Semi-Supervised and Contrastive Learning Paradigms — leveraging unlabeled multimodal data to improve model robustness and generalization under limited annotation scenarios.
+- Semi-Supervised and Contrastive Learning Paradigms &mdash; leveraging unlabeled multimodal data to improve model robustness and generalization under limited annotation scenarios.
+</div>
 <!-- prettier-ignore-end -->
+
