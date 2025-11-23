@@ -61,6 +61,15 @@
       institution: University of Zurich, Zurich, Switzerland
       year: 1909 - 1911
 
+- title: Grants
+  type: time_table
+  contents:
+    - title: Multi-Modal Fusion in Speech Emotion Recognition
+      institution: FPT University (Hanoi, Hanoi, VN)
+      year: Apr. 2025 - Oct. 2025
+      description:
+        - Grant number: DHFPT/2025/10
+
 - title: Open Source Projects
   type: time_table
   contents:
