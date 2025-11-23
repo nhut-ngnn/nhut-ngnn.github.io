@@ -24,12 +24,20 @@
   },
   "work": [
     {
+      "name": "AIoT Research Pioneer Club, FPT University",
+      "position": "Leader of Club",
+      "url": "https://www.facebook.com/FARPC.HCM",
+      "startDate": "2025-08-25",
+      "endDate": "",
+      "summary": "Lead FPT University’s AIoT research club, organizing events and mentoring members."
+    },
+    {
       "name": "AI Technology and Application Research Lab, FPT University",
       "position": "Ungraduated Research Assistants",
-      "url": "https://aita-lab.github.io/",
+      "url": "https://aita-lab.github.io/member/nmnhut",
       "startDate": "2024-04-05",
       "endDate": "",
-      "summary": "Conducting research in machine learning, deep learning, computer vision, and speech processing to develop and enhance AI-driven solutions for visual and auditory data analysis."
+      "summary": "Conducting research in machine learning, deep learning, and speech processing to develop and enhance AI-driven solutions for visual and auditory data analysis."
     }
   ],
   "education": [
@@ -40,18 +48,28 @@
       "area": "Artificial Intelligence",
       "studyType": "Bachelor of Science",
       "startDate": "2022",
-      "endDate": "2026",
-      "score": "8.4"
+      "endDate": "2026"
      }
   ],
-  "awards": [
+  "grants": [
     {
-      "title": "The Student Research Competition at FPT University",
-      "date": "2024-03-27",
-      "awarder": "Runner-Up Prize",
-      "summary": "In this competition, my colleagues and I are dedicating our efforts to the cutting-edge realm of Voice-based Age and Gender detection using Long Short-term Memory (LSTM) technology. With a shared passion for innovation and a drive to push the boundaries of what's possible, we're delving into the intricate nuances of voice data to create robust and accurate detection models."
+      "title": "Multi-Modal Fusion in Speech Emotion Recognition",
+      "startDate": "2025-04",
+      "endDate": "2025-10",
+      "grantor": "FPT University (Hanoi, Hanoi, VN)",
+      "grantNumber": "DHFPT/2025/10"
     }
   ],
+  "awards": [
+  {
+    "title": "FPT Research Festival - ResFes 2025",
+    "url": "https://science.fpt.edu.vn/Articles/khoa-hoc-cong-nghe/research-festival-2025-khep-lai-hanh-trinh-vinh-danh-nhung-nha-vo-ich",
+    "date": "2025-08-19",
+    "awarder": "The Consolation Prize",
+    "team": "AiTA@01",
+    "summary": "Topic: Speech Emotion Recognition with Heterogeneous Graph Construction"
+  }
+],
   "certificates": [
     {
       "name": "Python for Data Science, AI & Development",

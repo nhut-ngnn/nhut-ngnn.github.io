@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 📰 01 paper are accepted at 2025 IEEE International Conference on Big Data
+title: 📰 01 paper are accepted at 2025 IEEE International Conference on Big Data (Rank B - CORE), Macau SAR, China.
 date: 2025-11-15 15:59:00-0400
 inline: false
 related_posts: false
