@@ -30,10 +30,6 @@ nav_order: 2
 
 <div class="publications">
 
-<h2>Selected Publications</h2>
-{% bibliography --query @*[selected=true]* %}
-
-<h2>Other Publications</h2>
-{% bibliography --query @*[selected=false]* %}
+{% bibliography %}
 
 </div>
