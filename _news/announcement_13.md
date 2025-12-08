@@ -53,8 +53,6 @@ This study was conducted by members of [**AiTA Research Lab**](https://aita-lab.
 
 together with undergraduate students in **Artificial Intelligence** at **FPT University Ho Chi Minh Campus**.
 
-(Full author list can be added here if needed.)
-
 ---
 
 ## About the Euréka Award
