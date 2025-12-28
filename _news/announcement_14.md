@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "🏆 1st Prize in Student Research Competition at FPT University, Fall 2025!"
-date: 2025-04-13 15:59:00-0400
+date: 2025-12-29 15:59:00-0400
 inline: false
 related_posts: false
 ---
