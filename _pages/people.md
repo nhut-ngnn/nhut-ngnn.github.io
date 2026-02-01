@@ -1,4 +1,4 @@
-<!-- ---
+---
 layout: profiles
 title: People
 permalink: /people/
@@ -24,4 +24,4 @@ nav_order: 3
        <p><strong>Phuong-Nam Tran</strong><br/>Collaborator · Speech &amp; Conversational AI</p>
        <p><a href="https://scholar.google.com/citations?hl=en&user=NKbwDD8AAAAJ">Scholar profile</a></p>
      content: people/phuong-nam-tran.md
---- -->
+---
