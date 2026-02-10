@@ -13,6 +13,9 @@
 "EAAI":
   url: https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence/
   color: "#600"
+"INIS":
+  url: https://publications.eai.eu/index.php/inis/index
+  color: "#600"
 
 "ICTC":
   url: https://ictc.org/
@@ -20,5 +23,13 @@
 "RIVF":
   url: https://rivf2025.org/
   color: "#215d42"
+"MLHMI":
+  url: https://www.mlhmi.org/
+  color: "#215d42"
+"BIGDATA":
+  url: https://conferences.cis.um.edu.mo/ieeebigdata2025/
+  color: "#215d42"
+
+
 "Preprint":
   color: "#0d93bf"
