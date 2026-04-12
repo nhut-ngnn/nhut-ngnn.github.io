@@ -10,6 +10,10 @@
   url: https://advances.vsb.cz/
   color: "#600"
 
+"KBS":
+  url: https://www.sciencedirect.com/journal/knowledge-based-systems
+  color: "#600"
+
 "EAAI":
   url: https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence/
   color: "#600"

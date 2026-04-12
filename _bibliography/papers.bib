@@ -1,6 +1,31 @@
 ---
 ---
 
+@ARTICLE{PHAN2026115946,
+    AUTHOR={Duc Tai Phan and Nhut Minh Nguyen and Khang Phuc Nguyen and Phuong-Nam Tran and Nhat Truong Pham and Linh Le and Choong Seon Hong and Duc Ngoc Minh Dang},
+    TITLE={From object difficulty to image scoring: A strategy for active learning in object detection},
+    JOURNAL={Knowledge-Based Systems},
+    journal_url={https://www.sciencedirect.com/journal/knowledge-based-systems},
+    MONTH = {apr},
+    YEAR={2026},
+    selected={true},
+    bibtex_show={true},
+    abbr={KBS},
+    preview={FDAL.png},
+    html={https://www.sciencedirect.com/science/article/abs/pii/S0950705126006726?via%3Dihub},
+    code={https://github.com/aita-lab/FDAL},
+    ABSTRACT={Object detection (OD) faces the costly hurdle of large-scale dataset annotation. Active Learning (AL) is a promising solution that selects the most beneficial samples for annotation. Applying AL to OD is challenging, as it requires addressing uncertainties in both classifying and localizing objects while combining object-level information into a single image-level decision. Current methods, like uncertainty sampling, often rely on output-level uncertainty or heuristic signal combinations. However, relying on static model outputs limits their ability to capture underlying feature-space instabilities. To address these limitations, we propose Feature Difficulty-based AL (FDAL), a novel framework that shifts the focus from output-level heuristics to active latent-space manipulation. By systematically interpolating unlabeled features toward class anchors, FDAL identifies prediction inconsistencies to reveal hidden traits unknown to the model. This anchor-guided interpolation unifies classification and localization uncertainties, capturing latent instabilities that traditional paradigms miss. Experiments on four OD benchmarks demonstrate that FDAL achieves state-of-the-art (SOTA) results, consistently improving detection accuracy while substantially reducing annotation costs. FDAL outperforms SOTA methods by 0.8% in detection accuracy on Pattern analysis, statistical modelling, and computational learning (PASCAL) Visual Object Classes (PASCAL VOC), 1.99% on Karlsruhe Institute of Technology and Toyota Technological Institute (KITTI), 1.68% on Cityscapes, and 0.27% on Microsoft Common Objects in Context (MS COCO). FDAL's selection is highly efficient, taking 0.06 seconds per image on PASCAL VOC and up to 0.63 seconds per image on Cityscapes, enabling scalability to large unlabeled pools. FDAL offers a practical, efficient, and effective solution for advancing AL in OD.},
+    KEYWORDS = {Active learning, Object detection, Computer vision, Difficulty, Instability},
+    volume = {342},
+    pages = {115946},
+    issn = {0950-7051},
+    doi = {https://doi.org/10.1016/j.knosys.2026.115946},
+    url = {https://www.sciencedirect.com/science/article/pii/S0950705126006726},
+    google_scholar_id={5nxA0vEk-isC},
+    dimensions={true},
+
+}
+
 @article{nguyen2026HyperDyG,
   abbr={INIS},
   bibtex_show=True,
@@ -10,12 +35,13 @@
   journal={EAI Endorsed Transactions on Industrial Networks and Intelligent Systems Journal},
   volume={13},
   year = {2026},
-   month={February},
+  month={February},
   code = {https://github.com/nhut-ngnn/HyperDyG},
-  preview = {HyperDyG.jpg},
-  doi ={10.4108/eetinis.131.10903},
-  html={https://publications.eai.eu/index.php/inis/article/view/10903},
-  dimensions={true}
+  preview={HyperDyG.jpg},
+  google_scholar_id={hqOjcs7Dif8C},
+  dimensions={true},
+  doi={https://doi.org/10.4108/eetinis.131.10903}
+
 }
 
 @inproceedings{Nguyen2026SemiFedER,
@@ -28,7 +54,7 @@
   address   = {Tokyo, Japan},
   month     = {March},
   code      = {https://github.com/nhut-ngnn/SemiFedER},
-  preview   = {SemiFedER.jpg},
+  preview   = {SemiFedER.png},
   note = {To appear}
 }
 
@@ -40,8 +66,13 @@
   year      = {2025},
   address   = {Macau SAR, China},
   bibtex_show = True,
-  preview   = {FedFixMatch.jpg},
-  note      = {To appear}
+  doi = {https://doi.org/10.1109/BigData66926.2025.11402514},
+  url = {https://ieeexplore.ieee.org/abstract/document/11402514},
+  google_scholar_id={0EnyYjriUFMC},
+  preview={FedFixMatch.jpg},
+  dimensions={true},
+
+
 }
 @INPROCEEDINGS{Nguyen2025Parking,
   abbr={RIVF},
@@ -57,8 +88,10 @@
   keywords={YOLO;Analytical models;Smart cities;Automated parking;Real-time systems;Internet of Things;License plate recognition;Monitoring;Traffic congestion;Intelligent sensors;Smart Parking System;License Plate Recognition;Real-Time Slot Monitoring;YOLOv5;Optical Character Recognition;Computer Vision},
   doi={10.1109/RIVF68649.2025.11365041},
   preview={RIVF25_Nguyen.jpg},
+  dimensions={true},
   google_scholar_id={Se3iqnhoufwC},
   dimensions={true},
+
 }
 
 @article{nguyen2026HemoGAT,
@@ -66,15 +99,11 @@
   bibtex_show=True,
   title = {HemoGAT: Heterogeneous Multimodal Speech Emotion Recognition with Cross-Modal Transformer and Graph Attention Network},
   author = {Nguyen, Nhut Minh and Nguyen, Thanh Trung and Dang, Duc Ngoc Minh},
-  abstract={Multimodal speech emotion recognition (SER) is a promising field, yet effectively fusing diverse information streams remains challenging. Addressing this requires architectures capable of modeling structural relationships across modalities with fine-grained, feature-level interactions. This paper proposes HemoGAT, a novel heterogeneous multimodal SER architecture that integrates a dual-stream architecture with two core modules: a heterogeneous multimodal graph attention network (HM-GAT) and a cross-modal transformer (CMT) to address this. The HM-GAT module captures complex structural and contextual dependencies using a heterogeneous graph constructed from deep embeddings. The CMT module enables precise cross-modal feature fusion through bidirectional cross-attention. This design effectively captures both high-level relationships and immediate cross-modal influences. HemoGAT achieves state-of-the-art (SOTA) performance on the IEMOCAP dataset and highly competitive results on the MELD dataset, demonstrating its superiority over existing methods. Extensive ablation studies were conducted to evaluate HemoGAT. We assessed the impact of the Top-K algorithm for heterogeneous graph construction and compared unimodal and multimodal fusion strategies. We also examined the contributions of the HM-GAT and CMT modules, analyzed the role of the graph attention network (GAT) in graph learning, and evaluated the effect of GAT layer depth on performance.},
   journal={Advances in Electrical and Electronic Engineering},
-  year = {2026},
-  month = {June},
+  year = {2025},
   code = {https://github.com/nhut-ngnn/HemoGAT},
-  doi ={10.15598/aeee.v24i2.250415},
-  url = {https://advances.vsb.cz//uploads/early-access-articles/HemoGAT%20Heterogeneous%20multimodal%20speech%20emotion%20recognition%20with%20cross-modal%20transformer%20and%20graph%20attention%20network.pdf},
+  note = {To appear},
   preview = {HemoGAT.jpg},
-  dimensions={true},
 }
 
 @article{nguyen2026fleser,
