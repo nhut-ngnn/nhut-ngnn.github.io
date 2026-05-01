@@ -1,5 +1,17 @@
 ---
 ---
+@inproceedings{Nguyen2025Ecti-Con,
+  abbr      = {ECTI-CON},
+  bibtex_show=True,
+  author    = {Thanh Trung Nguyen and Nhut Minh Nguyen and Duc Tai Phan and Quang Nhan Hoang and Tri Minh Pham and Duc Ngoc Minh Dang},
+  title     = {Swin Transformer V2 for Optical Chemical Structure Recognition: Comparison with Convolutional Neural Networks and Swin Transformer Variants},
+  booktitle = {The 23rd International Conference on Electrical Engineering/Electronics, Computer, Telecommunication, and Information Technology},
+  year      = {2026},
+  address   = {Chonburi, Thailand},
+  abstract  = {Optical Chemical Structure Recognition (OCSR) is designed to transform images of chemical structures into formats that computers can process, facilitating the extraction of molecular data from scientific publications on a large scale. Although modern deep learning methods have shown encouraging results, the impact of different visual backbone designs on understanding molecular structures has not been thoroughly investigated. This research compares various visual backbones for OCSR using an encoder-decoder architecture. The results show that while Convolutional Neural Network (CNN) architectures deliver excellent accuracy at the character level, Swin Transformer V2 generates more accurate molecular structures, as evidenced by superior Tanimoto similarity metrics. Moreover, even though Swin Transformer V2 has similar computational demands as the original Swin Transformer (V1), it exhibits enhanced training reliability and better capability for structural modeling, underscoring its effectiveness as a dependable visual backbone for OCSR applications.},
+  note      = {To appear},
+  preview={ECTICON_Nguyen.jpg},
+}
 
 @ARTICLE{PHAN2026115946,
     AUTHOR={Duc Tai Phan and Nhut Minh Nguyen and Khang Phuc Nguyen and Phuong-Nam Tran and Nhat Truong Pham and Linh Le and Choong Seon Hong and Duc Ngoc Minh Dang},
@@ -8,7 +20,7 @@
     journal_url={https://www.sciencedirect.com/journal/knowledge-based-systems},
     MONTH = {apr},
     YEAR={2026},
-    selected={true},
+    selected={false},
     bibtex_show={true},
     abbr={KBS},
     preview={FDAL.png},
@@ -19,7 +31,7 @@
     volume = {342},
     pages = {115946},
     issn = {0950-7051},
-    doi = {https://doi.org/10.1016/j.knosys.2026.115946},
+    doi = {10.1016/j.knosys.2026.115946},
     url = {https://www.sciencedirect.com/science/article/pii/S0950705126006726},
     google_scholar_id={5nxA0vEk-isC},
     dimensions={true},
@@ -40,7 +52,7 @@
   preview={HyperDyG.jpg},
   google_scholar_id={hqOjcs7Dif8C},
   dimensions={true},
-  doi={https://doi.org/10.4108/eetinis.131.10903}
+  doi={10.4108/eetinis.131.10903}
 
 }
 
@@ -49,6 +61,7 @@
   bibtex_show=True,
   title     = {SemiFedER: Semi-supervised Federated Averaging for Multimodal Emotion Recognition},
   author    = {Nguyen, Nhut Minh and Le, Thu Thuy and Nguyen, Thanh Trung and Dang, Duc Ngoc Minh},
+  abstract  = {Multimodal Emotion Recognition (MER) is a powerful approach for human–computer interaction, leveraging complementary cues across multiple modalities to infer human affect. MER has broad real-world potential in applications such as healthcare monitoring and affect-aware virtual assistants. However, practical deployments face two major challenges: large-scale data is often unlabeled due to the high cost of emotion annotation, and speech signals and transcripts are privacy-sensitive, limiting centralized data collection and training. To address these limitations, we propose SemiFedER, a semi-supervised federated learning framework for MER. SemiFedER performs client-side training in two stages, including supervised pre-training on labeled samples and semi-supervised learning that exploits unlabeled data via confidence-based pseudo-labeling and weak-strong consistency regularization. The server aggregates client updates using Federated Averaging (FedAvg) to learn a global model without sharing raw data. We deploy the representative centralized MER backbones within SemiFedER to assess their effectiveness in this practical setting. Extensive experiments on the MELD dataset under speaker-disjoint non-IID federated splits demonstrate that SemiFedER provides stable performance across labeled ratios and client counts, and achieves competitive improvements in class-balanced evaluation compared to centralized baselines.},
   booktitle = {Proceedings of the 7th International Conference on Machine Learning and Human-Computer Interaction (MLHMI 2026)},
   year      = {2026},
   address   = {Tokyo, Japan},
@@ -62,17 +75,16 @@
   abbr      = {BIGDATA},
   author    = {Thu Thuy Le and Nhut Minh Nguyen and Nhat Truong Pham and Phuong{-}Nam Tran and Nguyen Doan Hieu Nguyen and Phuong Luu Vo and Balachandran Manavalan and Duc Ngoc Minh Dang},
   title     = {Federated Semi-Supervised FixMatch: Enhancing CutMix for Medical Image Segmentation},
+  abstract  = {Previous studies on federated learning (FL) often assume that each client has access to fully labeled data. In reality, however, most hospitals and clinical facilities lack sufficient labeled data, as annotation is costly and requires highly skilled experts. The key challenge, therefore, is how to effectively train FL models when only a small portion of data at each client is labeled. Federated semi-supervised learning (FSSL) has emerged as a promising solution. From the perspective of big data, this challenge is further intensified by the large scale, heterogeneity, and non-IID nature of data distributions. These factors significantly affect training efficiency, making it crucial to fully leverage diverse unlabeled datasets while ensuring privacy and minimizing communication costs for large-scale FL deployment. In this study, we apply data augmentation in FSSL to make better use of unlabeled data together with the limited amount of labeled data. Specifically, we investigate the role of CutMix, a widely used patch-level augmentation technique, when combined with Federated FixMatch (FedFixMatch). We evaluate different strategies, including applying CutMix only to labeled data, only to unlabeled data, to both branches, or to mixed data, and examine their effects under varying annotation conditions and heterogeneous client distributions. Additionally, we examine the impact of CutMix on communication efficiency, convergence dynamics, and training stability within FedFixMatch. To the best of our knowledge, this work provides the first comprehensive benchmark of CutMix strategies in FSSL for medical image segmentation. Our results provide important guidance for developing efficient augmentation strategies that address the practical challenges of big data and FL.},
   booktitle = {2025 IEEE International Conference on Big Data},
   year      = {2025},
   address   = {Macau SAR, China},
   bibtex_show = True,
-  doi = {https://doi.org/10.1109/BigData66926.2025.11402514},
-  url = {https://ieeexplore.ieee.org/abstract/document/11402514},
+  doi = {10.1109/BigData66926.2025.11402514},
+  html = {https://ieeexplore.ieee.org/abstract/document/11402514},
   google_scholar_id={0EnyYjriUFMC},
   preview={FedFixMatch.jpg},
   dimensions={true},
-
-
 }
 @INPROCEEDINGS{Nguyen2025Parking,
   abbr={RIVF},
@@ -81,6 +93,7 @@
   booktitle={Proceedings of the 2025 RIVF International Conference on Computing and Communication Technologies (RIVF)}, 
   title={YOLOv5-Powered Smart Parking System with IoT-Based Real-Time Slot Monitoring}, 
   year={2025},
+  abstract ={Finding a parking space has become a daily struggle in an era of rapid urbanization and increasing car ownership, contributing to traffic congestion, lost time, and environmental stress. To transform urban parking management, this study presents a novel Smart Parking System (SPS) that seamlessly integrates deep learning and Internet of Things (IoT) technologies. Our SPS delivers a streamlined workflow, featuring real-time slot occupancy detection via a fine-tuned YOLOv5 model analyzing camera feeds, automated entry/exit handling triggered by IoT sensors, and a specialized License Plate Recognition (LPR) model. Additionally, it includes secure cloud-based data logging for effortless tracking and billing. The web dashboard provides real-time, color-coded visualizations of slot availability, supporting efficient parking management. Experimental evaluation demonstrates an accuracy of 90% in license plate recognition and over 99.5% in slot occupancy detection, highlighting the system's reliability and practical applicability for smart city deployment.},
   volume={},
   number={},
   pages={693-698},
@@ -100,9 +113,11 @@
   title = {HemoGAT: Heterogeneous Multimodal Speech Emotion Recognition with Cross-Modal Transformer and Graph Attention Network},
   author = {Nguyen, Nhut Minh and Nguyen, Thanh Trung and Dang, Duc Ngoc Minh},
   journal={Advances in Electrical and Electronic Engineering},
-  year = {2025},
+  year = {2026},
+  month = {June},
   code = {https://github.com/nhut-ngnn/HemoGAT},
-  note = {To appear},
+  abstract = {Multimodal speech emotion recognition (SER) is a promising field, yet effectively fusing diverse information streams remains challenging. Addressing this requires architectures capable of modeling structural relationships across modalities with fine-grained, feature-level interactions. This paper proposes HemoGAT, a novel heterogeneous multimodal SER architecture that integrates a dual-stream architecture with two core modules: a heterogeneous multimodal graph attention network (HM-GAT) and a cross-modal transformer (CMT) to address this. The HM-GAT module captures complex structural and contextual dependencies using a heterogeneous graph constructed from deep embeddings. The CMT module enables precise cross-modal feature fusion through bidirectional cross-attention. This design effectively captures both high-level relationships and immediate cross-modal influences. HemoGAT achieves state-of-the-art (SOTA) performance on the IEMOCAP dataset and highly competitive results on the MELD dataset, demonstrating its superiority over existing methods. Extensive ablation studies were conducted to evaluate HemoGAT. We assessed the impact of the Top-K algorithm for heterogeneous graph construction and compared unimodal and multimodal fusion strategies. We also examined the contributions of the HM-GAT and CMT modules, analyzed the role of the graph attention network (GAT) in graph learning, and evaluated the effect of GAT layer depth on performance.},
+  html = {https://advances.vsb.cz//uploads/early-access-articles/HemoGAT%20Heterogeneous%20multimodal%20speech%20emotion%20recognition%20with%20cross-modal%20transformer%20and%20graph%20attention%20network.pdf},
   preview = {HemoGAT.jpg},
 }
 

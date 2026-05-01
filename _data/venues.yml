@@ -33,7 +33,9 @@
 "BIGDATA":
   url: https://conferences.cis.um.edu.mo/ieeebigdata2025/
   color: "#215d42"
-
+"ECTI-CON":
+  url: https://eng.buu.ac.th/ecti-con2026/
+  color: "#215d42"
 
 "Preprint":
   color: "#0d93bf"
