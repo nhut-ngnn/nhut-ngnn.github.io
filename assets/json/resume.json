@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Nhut Minh Nguyen",
-    "label": "Ungraduated Research Assistants",
+    "label": "Research Assistants",
     "image": "",
     "email": "minhnhut.ngnn@gmail.com",
     "phone": "(+84) 939 323 874",
@@ -24,11 +24,19 @@
   },
   "work": [
     {
+      "name": "AI Technology and Application Research Lab, Faculty of Information Technology, FPT University",
+      "position": "Research Assistant",
+      "url": "https://aita-lab.github.io/member/nmnhut",
+      "startDate": "2026-06-01",
+      "endDate": "",
+      "summary": "Supervised and advised students in research activities. Mentored students and organized seminars on research guidance. Focused on topics in Affective Computing, Federated Learning, and Semi-supervised Learning."
+    },
+    {
       "name": "AIoT Research Pioneer Club, FPT University",
       "position": "Leader of Club",
       "url": "https://www.facebook.com/FARPC.HCM",
       "startDate": "2025-08-25",
-      "endDate": "",
+      "endDate": "2026-08-25",
       "summary": "Lead FPT University’s AIoT research club, organizing events and mentoring members."
     },
     {
@@ -36,7 +44,7 @@
       "position": "Ungraduated Research Assistants",
       "url": "https://aita-lab.github.io/member/nmnhut",
       "startDate": "2024-04-05",
-      "endDate": "",
+      "endDate": "2026-05-31",
       "summary": "Conducting research in machine learning, deep learning, and speech processing to develop and enhance AI-driven solutions for visual and auditory data analysis."
     }
   ],

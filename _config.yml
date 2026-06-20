@@ -300,8 +300,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Nguyen]
+  first_name: [Nhut Minh, Nhut, N. M., N.M.]
 
   style: apa
   locale: en
@@ -345,9 +345,13 @@ filtered_bibtex_keywords:
     bibtex_show,
     blog,
     code,
+    dimensions,
+    google_scholar_id,
     html,
+    journal_url,
     pdf,
     poster,
+    preprint,
     preview,
     selected,
     slides,

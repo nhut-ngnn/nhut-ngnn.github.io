@@ -2,14 +2,14 @@
 layout: about
 title: About
 permalink: /
-subtitle: Artificial Intelligence Student at <a href="https://university.fpt.edu.vn/">FPT University, Ho Chi Minh Campus.</a>
+subtitle: B.Sc of Artificial Intelligence at <a href="https://university.fpt.edu.vn/">FPT University, Ho Chi Minh Campus.</a>
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false
   more_info: >
-    <p>Student of Artificial Intelligence, FPT University</p>
+    <p>B.Sc of Artificial Intelligence, FPT University</p>
 
 news: true
 selected_papers: true
@@ -23,7 +23,7 @@ hide_header: true
     <div class="card-body p-4 p-md-5">
       <div class="row align-items-center">
         <div class="col-12 col-lg-11 col-xl-9 mx-auto text-center text-md-left">
-          <p class="text-uppercase text-primary mb-2">Artificial Intelligence Student &middot; Research Assistant</p>
+          <p class="text-uppercase text-primary mb-2">Research Assistant</p>
           <h1 class="h3 mb-3">Hi, I am Nguyen Minh Nhut.</h1>
           <p class="lead mb-4">
             I design multimodal and human-centered AI systems that help machines understand emotion, speech, and intent.
