@@ -2,14 +2,14 @@
 layout: about
 title: About
 permalink: /
-subtitle: B.Sc of Artificial Intelligence at <a href="https://university.fpt.edu.vn/">FPT University, Ho Chi Minh Campus.</a>
+subtitle: B.Sc. in Artificial Intelligence at <a href="https://university.fpt.edu.vn/">FPT University, Ho Chi Minh Campus.</a>
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false
   more_info: >
-    <p>B.Sc of Artificial Intelligence, FPT University</p>
+    <p>AiTA Lab, Faculty of Information Technology, FPT University, Ho Chi Minh Campus, 71320</p>
 
 news: true
 selected_papers: true

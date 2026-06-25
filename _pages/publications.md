@@ -11,10 +11,10 @@ nav_order: 2
 
 <!-- Bibsearch Feature -->
 <p>
-(†) denotes equal contribution
+(&dagger;) denotes equal contribution
 </p>
 <p>
-(*) denotes correspondance
+(*) denotes correspondence
 </p>
 <p>
 <span style="display: inline-block; width: 15px; height: 15px; background-color: #600;"></span> denotes journal
