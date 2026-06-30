@@ -1,13 +1,49 @@
-"duc tai phan": https://taiduc1001.github.io/
-"duc ngoc minh dang": https://scholar.google.com/citations?user=2UKP440AAAAJ&hl=en
-"nhut minh nguyen": https://scholar.google.com/citations?user=4zTooQ0AAAAJ&hl=en
-"nhat truong pham": https://scholar.google.com/citations?user=HybH2XkAAAAJ&hl=en
-"phuong-nam tran": https://scholar.google.com/citations?user=NKbwDD8AAAAJ&hl=en
-"linh le": https://scholar.google.com/citations?user=zlYcKiAAAAAJ&hl=en
-"choong seon hong": https://scholar.google.com/citations?user=oKANWloAAAAJ&hl=en
-"tri minh pham": https://scholar.google.com/citations?user=f1LXlW8AAAAJ&hl=en
-"thanh trung nguyen": https://orcid.org/0009-0004-7553-4848
-"quang nhan hoang": https://orcid.org/0009-0003-1597-6890
-"thu thuy le": https://orcid.org/0009-0006-9046-4774
-"khang phuc nguyen": https://orcid.org/0009-0001-9828-4579
-"nam van hai phan": https://orcid.org/0009-0008-2588-5235
+"dang":
+  - firstname: ["Duc Ngoc Minh"]
+    url: https://scholar.google.com/citations?hl=en&user=2UKP440AAAAJ&view_op=list_works&sortby=pubdate
+
+"el saddik":
+  - firstname: ["Abdulmotaleb"]
+    url: https://scholar.google.com/citations?hl=en&user=VcOjgngAAAAJ&view_op=list_works&sortby=pubdate
+
+"hong":
+  - firstname: ["Choong Seon"]
+    url: https://scholar.google.com/citations?user=oKANWloAAAAJ&hl=en
+
+"khan":
+  - firstname: ["Mustaqeem"]
+    url: https://scholar.google.com/citations?hl=en&user=uEZhRWAAAAAJ&view_op=list_works&sortby=pubdate
+
+"le":
+  - firstname: ["Linh"]
+    url: https://scholar.google.com/citations?user=zlYcKiAAAAAJ&hl=en
+
+"manavalan":
+  - firstname: ["Balachandran"]
+    url: https://scholar.google.com/citations?hl=en&user=0vkenbwAAAAJ&view_op=list_works&sortby=pubdate
+
+"nguyen":
+  - firstname: ["Nguyen Doan Hieu"]
+    url: https://scholar.google.com/citations?hl=en&user=-aEoZCgAAAAJ&view_op=list_works&sortby=pubdate
+
+"othmani":
+  - firstname: ["Alice"]
+    url: https://scholar.google.com/citations?hl=en&user=nlonFkwAAAAJ&view_op=list_works&sortby=pubdate
+
+"pham":
+  - firstname: ["Nhat Truong"]
+    url: https://scholar.google.com/citations?user=HybH2XkAAAAJ&hl=en
+
+"saddik":
+  - firstname: ["Abdulmotaleb El"]
+    url: https://scholar.google.com/citations?hl=en&user=VcOjgngAAAAJ&view_op=list_works&sortby=pubdate
+
+"tran":
+  - firstname: ["Phuong-Nam"]
+    url: https://scholar.google.com/citations?user=NKbwDD8AAAAJ&hl=en
+  - firstname: ["Duong Thanh"]
+    url: https://scholar.google.com/citations?hl=en&user=kz_chQ4AAAAJ&view_op=list_works&sortby=pubdate
+
+"lim":
+  - firstname: ["Chee Peng"]
+    url: https://scholar.google.com/citations?hl=en&user=an_4IJkAAAAJ&view_op=list_works&sortby=pubdate
