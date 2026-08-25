@@ -14,6 +14,10 @@
   url: https://www.sciencedirect.com/journal/knowledge-based-systems
   color: "#600"
 
+"TJIT":
+  url: https://www.tandfonline.com/journals/tjit20
+  color: "#600"
+
 "EAAI":
   url: https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence/
   color: "#600"
