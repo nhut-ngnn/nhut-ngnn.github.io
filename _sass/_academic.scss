@@ -133,10 +133,20 @@ p {
   margin-bottom: 1.15em;
 }
 
-article p,
-.about-main p,
-.post > article > p {
+/* Cap the measure on flowing body prose ONLY — paragraphs that are direct
+   children of the article. A blanket `article p` also catches paragraphs inside
+   centred sections, cards and grid columns: there the narrower block box hugs
+   the left edge while `text-center` centres the text inside it, so the content
+   reads as shifted left of everything around it. */
+.post > article > p,
+.about-main > p {
   max-width: var(--measure);
+}
+
+/* …and if such a paragraph is centred, centre the box too. */
+.post > article > p.text-center,
+.post > article > p.text-md-center {
+  margin-inline: auto;
 }
 
 strong,
@@ -184,6 +194,12 @@ pre,
   font-size: 0.86em;
 }
 
+/* Long commands must scroll in their own box, never widen the page. */
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 /* Small-caps label used across the site (kickers, legends, meta) */
 .ac-label {
   font-family: var(--font-ui);
@@ -221,9 +237,10 @@ pre,
     font-weight: 500;
     letter-spacing: 0.075em;
     text-transform: uppercase;
+    white-space: nowrap; /* "Curriculum Vitae" must not break across two lines */
     color: var(--global-text-color-light);
     padding: 0.35rem 0.1rem;
-    margin: 0 0.62rem;
+    margin: 0 0.55rem;
     border-bottom: 1.5px solid transparent;
 
     &:hover {
@@ -1519,7 +1536,103 @@ html[data-theme="dark"] .publications ol.bibliography .links a.btn:hover {
 }
 
 /* -----------------------------------------------------------------------------
- * 13. Misc & a11y
+ * 13. Bootstrap / MDB bridge
+ * -----------------------------------------------------------------------------
+ * Pages written with stock Bootstrap utilities — the project pages under
+ * _projects/ use .btn-primary, .text-primary, .text-muted — would otherwise
+ * render in Bootstrap's blue and MDB's purple, which fight the palette. Map
+ * those utilities onto the design tokens instead of rewriting the pages.
+ * -------------------------------------------------------------------------- */
+
+.btn {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  border-radius: var(--radius);
+  box-shadow: none !important;
+  padding: 0.5rem 1.05rem;
+}
+
+.btn-primary,
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--global-hover-text-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--highlight);
+  border-color: var(--highlight);
+  color: var(--global-hover-text-color);
+}
+
+.btn-outline-primary {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: transparent;
+}
+
+.btn-secondary,
+.btn-outline-secondary {
+  color: var(--global-text-color-light);
+  border-color: var(--global-divider-color);
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--global-hover-text-color);
+}
+
+.btn:focus-visible,
+.btn.focus {
+  box-shadow: 0 0 0 3px var(--accent-soft) !important;
+}
+
+.text-primary,
+a.text-primary:hover {
+  color: var(--accent) !important;
+}
+
+.text-secondary,
+.text-muted {
+  color: var(--global-text-color-light) !important;
+}
+
+.bg-primary {
+  background-color: var(--accent) !important;
+}
+
+.badge-primary {
+  background-color: var(--accent);
+  color: var(--global-hover-text-color);
+}
+
+.lead {
+  font-size: 1.12rem;
+  line-height: 1.62;
+  font-weight: 400;
+}
+
+/* A centred section must not inherit a left-hugging measure from anywhere. */
+.text-center > p,
+.text-center > .lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -----------------------------------------------------------------------------
+ * 14. Misc & a11y
  * -------------------------------------------------------------------------- */
 
 ::selection {

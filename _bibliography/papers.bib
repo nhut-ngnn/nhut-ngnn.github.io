@@ -1,5 +1,71 @@
 ---
 ---
+
+@INPROCEEDINGS{Nguyen2026AURORA,
+  abbr={ATC},
+  bibtex_show=True,
+  title = {Audio-Guided Repair Gate for ASR-Robust Speech Emotion Recognitionn},
+  author = {Nguyen, Nhut Minh and Phan, Duc Tai and Dang, Duc Nguyen Huu and Nguyen, Thu Ky and Dang, Duc Ngoc Minh},
+  year = {2026},
+  month = {October},
+  address = {Quy Nhon City, Gia Lai Provide, Vietnam},
+  booktitle = {Proceedings of 2026 International Conference on Advanced Technologies for Communications (ATC)},
+  selected = {false},
+  preview = {AURORA.png},
+  dimensions={false},
+  code={https://github.com/aita-lab/AURORA},
+  abstract={Speech Emotion Recognition (SER) is an important task in affective computing and human-computer interaction. While multimodal SER can leverage complementary audio and textual cues, real-world systems often rely on Automatic Speech Recognition (ASR)-generated transcripts instead of manual transcripts. However, ASR errors may degrade semantic representations and reduce emotion recognition performance. In this study, we propose AURORA, an audio-guided repair gate architecture for ASR-robust SER. AURORA adopts a teacher-student architecture, where the teacher branch learns from audio and clean text, while the student branch learns from audio and ASR-generated text to match real-world inference conditions. The student branch is further equipped with an audio-guided repair gate, which pairs a repair residual with a reliability gate to selectively correct ASR-based textual representations. Gated multimodal fusion and knowledge distillation are used to integrate multimodal information and transfer reliable knowledge from the teacher branch to the student branch. We evaluate performance using Weighted Accuracy (WA), which measures overall classification accuracy across all samples, and Unweighted Accuracy (UA), which averages class-wise accuracy to account for class imbalance. Experiments on two benchmark datasets show that AURORA achieves competitive performance, with 79.96% WA and 79.77% UA on IEMOCAP, and 63.27% WA and 62.47% UA on MSP-IMPROV. Ablation studies validate the contribution of the proposed components to ASR-robust emotion recognition.},
+  note={To appear.}
+}
+
+@INPROCEEDINGS{Dang2026DoGKAN,
+  abbr={ATC},
+  bibtex_show=True,
+  title = {A Domain-Adaptive Kolmogorov-Arnold Network for Cross-Subject EEG-Based Emotion Recognition},
+  author = {Dang, Duc Nguyen Huu and Nguyen, Nhut Minh and Hoang, Quang Nhan and Le, Nhat Khanh and Dang, Duc Ngoc Minh},
+  year = {2026},
+  month = {October},
+  address = {Quy Nhon City, Gia Lai Provide, Vietnam},
+  booktitle = {Proceedings of 2026 International Conference on Advanced Technologies for Communications (ATC)},
+  selected = {false},
+  preview = {DoGKAN.png},
+  code={https://github.com/aita-lab/DoGKAN},
+  dimensions={false},
+  abstract={Electroencephalogram (EEG)-based emotion recognition encounters considerable challenges due to inter-subject variability and complex spatio-temporal dependencies, limiting the generalization of existing models in cross-subject contexts. This work presents DoGKAN, a hybrid architecture capable of integrating spatial dependency modeling, temporal sequence learning, and cross-subject domain alignment within a unified framework. Specifically, a Graph Convolutional Network (GCN) is employed to capture spatial interconnections among EEG electrodes, while a Transformer encoder models temporal dynamics of EEG sequences. To enhance nonlinear representation capacity, we replace traditional fully connected layers with Kolmogorov-Arnold Network (KAN), which utilizes learnable spline-based nonlinear mappings to provide greater representational flexibility and built-in sparsity regularization. Furthermore, a Domain-Adversarial Neural Network (DANN) with a Gradient Reversal Layer (GRL) is incorporated to mitigate cross-subject distribution discrepancies. The model's average accuracy under the Leave-One-Subject-Out (LOSO) protocol reaches 77.89% on SEED-IV and 84.86% on SEED-V. The results highlight the effectiveness of applying graph-based spatial modeling, Transformer-based temporal learning, and KAN-driven adaptive nonlinear classification for robust cross-subject EEG-based affective computing.},
+  note={To appear.}
+}
+@INPROCEEDINGS{Dang2026UAV,
+  abbr={ICIT},
+  bibtex_show=True,
+  title = {A UAV-Enabled Framework for Early Rip-Current Warning Using Lightweight Patch-Based Inference and Temporally Stabilized Risk Estimation},
+  author = {Dang-Ngoc, Hanh and Nguyen, Nhut Minh and Dang, Duc Ngoc Minh},
+  year = {2026},
+  month = {October},
+  address = {Sejong University, Seoul, Republic of Korea},
+  booktitle = {Proceedings of the 5th International Conference on Intelligence of Things 2026},
+  selected = {false},
+  preview = {ICIT_UAV.png},
+  dimensions={false},
+  abstract={Rip currents are major hazards at surf beaches, and timely warning requires identifying high-risk nearshore regions before swimmers are exposed to dangerous offshore flows. This paper proposes an unmanned aerial vehicle (UAV)-enabled framework in which aerial red-green-blue (RGB) video is streamed to a ground station for near-real-time rip-current warning. The framework targets practical deployment conditions where inference must remain lightweight, interpretable, and robust to variations in viewpoint, sea state, illumination, wave breaking, and shoreline appearance. The proposed pipeline tiles each frame into overlapping patches, extracts features using a frozen MobileNetV3-Large backbone, and applies a lightweight classifier to estimate rip-current likelihood. Patch scores are fused into a spatial score map and temporally smoothed using exponential moving average (EMA) to produce a stabilized operator-facing risk estimate over the image plane. RipAID is used for training, validation, and in-distribution testing, while RipVIS-val is used for no-tuning external evaluation. RipVIS polygon and mask annotations are converted to oriented bounding boxes (OBBs) for consistent processing. Experimental results show that the linear head achieves a precision of 0.899, recall of 0.985, and 𝐹2 score of 0.966 on RipAID-test. On RipVIS-val, EMA improves 𝐹2 from 0.870 to 0.889 and reduces Δ𝑀 from 0.245 to 0.021. The results indicate that lightweight UAV-assisted warning can produce temporally stabilized risk estimates suitable for operator review.},
+  note={To appear.}
+}
+@INPROCEEDINGS{phan2026CorrTie,
+  abbr={APWeb},
+  bibtex_show=True,
+  title = {CorrTie: Correction-aware Tie-breaking for Active Learning with Vision-Language Models},
+  author = {Phan, Duc Tai and Thai, Tri Nguyen and Nguyen, Khoa Minh and Nguyen, Nhut Minh  and Dang, Duc Ngoc Minh},
+  year = {2026},
+  month = {September},
+  address = {Da Nang City, Vietnam},
+  code = {https://github.com/TaiDuc1001/CorrTie},
+  booktitle = {Proceedings of the 10th APWeb-WAIM joint International Conference on Web and Big Data},
+  selected = {false},
+  preview = {CorrTie-Architecture.png},
+  dimensions={false},
+  abstract={Vision-language models (VLMs) provide strong transferable representations for visual recognition, but adapting them to downstream image classification tasks remains challenging when labeled data are scarce. Active learning (AL) reduces annotation cost by selecting informative unlabeled samples for oracle labeling; however, most AL strategies use oracle feedback only to expand the labeled training set. The correction event between a model prediction and the oracle label is usually not reused to guide future acquisition. To address this limitation, we propose Correction-aware Tie-breaking (CorrTie), a lightweight post-acquisition reranker for AL with VLMs. CorrTie keeps the base AL strategy unchanged and uses past oracle corrections to estimate class-wise correction risk. This risk is then used to rerank near-tie candidates while preserving the original acquisition ranking as the primary signal. Experiments with CoOp prompt learning on four image classification benchmarks and five base AL strategies show that CorrTie improves the average accuracy by +7.14, +3.74, and +0.66 percentage points at the 1\%, 2\%, and 5\% annotation budgets, respectively. These results indicate that oracle corrections can serve not only as supervision for prompt learning, but also as useful feedback for future active sample acquisition.},
+  note={To appear.}
+}
+
 @article{TRANG2026124138,
 title = {Towards effective multimodal emotion recognition in conversations via joint multi-graph learning and self-distillation},
 journal = {Information Sciences},
@@ -284,6 +350,36 @@ code={https://github.com/aita-lab/HMER-CBARM-MTL}}
   year = {2025},
   month = {September},
   abstract = {This study presents the development of a deep learning-based traffic sign recognition system integrated with OpenStreetMap (OSM) to enhance smart navigation and traffic management. The system utilizes a You Only Look Once (YOLO)based model trained on the Vietnamese Camera-based Traffic Sign Recognition 47 (VCTSR47) dataset to detect and classify Vietnamese traffic signs accurately. A dashboard camera mounted on motorbikes or cars collects real-world traffic data, automatically recognizing traffic signs, extracting Global Positioning System (GPS) coordinates, and storing relevant information in a structured database. The extracted data is integrated into OSM via Application Programming Interfaces (APIs), enabling precise visualization and real-time alerts for critical traffic signs. The system’s performance is rigorously evaluated through various metrics, including mean Average Precision (mAP), Precision, Recall, and Frames Per Second (FPS). Experimental results confirm high recognition accuracy and real-time processing efficiency, demonstrating the feasibility and potential applications of deep learning and digital mapping in modern intelligent transportation systems.},
+  html={https://ieeexplore.ieee.org/document/11181312},
+  address = {Kaohsiung, Taiwan},
+  organization = {National Sun Yat-sen University},
+  preview = {YOLO.jpg},
+  dimensions={true},
+  selected = {false}
+}
+
+@INPROCEEDINGS{nguyen2024age-gender,
+ial applications of deep learning and digital mapping in modern intelligent transportation systems.},
+  html={https://ieeexplore.ieee.org/document/11181312},
+  address = {Kaohsiung, Taiwan},
+  organization = {National Sun Yat-sen University},
+  preview = {YOLO.jpg},
+  dimensions={true},
+  selected = {false}
+}
+
+@INPROCEEDINGS{nguyen2024age-gender,
+al applications of deep learning and digital mapping in modern intelligent transportation systems.},
+  html={https://ieeexplore.ieee.org/document/11181312},
+  address = {Kaohsiung, Taiwan},
+  organization = {National Sun Yat-sen University},
+  preview = {YOLO.jpg},
+  dimensions={true},
+  selected = {false}
+}
+
+@INPROCEEDINGS{nguyen2024age-gender,
+ial applications of deep learning and digital mapping in modern intelligent transportation systems.},
   html={https://ieeexplore.ieee.org/document/11181312},
   address = {Kaohsiung, Taiwan},
   organization = {National Sun Yat-sen University},

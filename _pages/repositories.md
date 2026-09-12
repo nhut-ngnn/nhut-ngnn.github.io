@@ -11,7 +11,7 @@ nav_order: 4
 {% assign handle = site.data.repositories.github_users | first %}
 
 <section class="ac-gh-profile">
-  {% capture avatar_path %}assets/img/{{ site.profile_image | default: 'prof_pic.jpg' }}{% endcapture %}
+  {% capture avatar_path %}assets/img/{{ site.profile_image | default: 'Github_img.jpg' }}{% endcapture %}
   <img class="ac-gh-avatar" src="{{ avatar_path | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}" width="72" height="72" loading="lazy" decoding="async">
   <div class="ac-gh-id">
     <a class="ac-gh-handle" href="https://github.com/{{ handle }}" rel="noopener">@{{ handle }}</a>

@@ -43,6 +43,14 @@
 "ECTI-CON":
   url: https://eng.buu.ac.th/ecti-con2026/
   color: "#215d42"
-
+"ICIT":
+  url: https://icitconf.org/
+  color: "#215d42"
+"ATC":
+  url: https://atc-conf.org/
+  color: "#215d42"
+"APWeb":
+  url: https://conferences.sigappfr.org/apweb2026/
+  color: "#215d42"
 "Preprint":
   color: "#0d93bf"
