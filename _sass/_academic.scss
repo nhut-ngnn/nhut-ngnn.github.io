@@ -1,0 +1,1582 @@
+/*******************************************************************************
+ * Academic overlay
+ * -----------------------------------------------------------------------------
+ * A classic, print-inspired layer that sits on top of al-folio's base styles.
+ * Imported last in assets/css/main.scss, so everything here wins without the
+ * upstream partials being touched (upgrades stay easy to merge).
+ ******************************************************************************/
+
+/* -----------------------------------------------------------------------------
+ * 1. Design tokens
+ * -------------------------------------------------------------------------- */
+
+:root {
+  /* Type */
+  --font-display: "EB Garamond", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-body: "Source Serif 4", "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Measure & rhythm */
+  --measure: 68ch;
+  --rule: 1px solid var(--global-divider-color);
+  --radius: 3px;
+
+  /* Palette — light */
+  --paper: #fbfaf6;
+  --paper-raised: #ffffff;
+  --ink: #1f2328;
+  --ink-soft: #5d6470;
+  --accent: #1b3a5c; /* oxford blue  */
+  --accent-soft: rgba(27, 58, 92, 0.08);
+  --highlight: #7a1f2b; /* burgundy     */
+  --highlight-soft: rgba(122, 31, 43, 0.08);
+  --hairline: rgba(31, 35, 40, 0.14);
+
+  /* Remap al-folio globals onto the palette */
+  --global-bg-color: var(--paper);
+  --global-text-color: var(--ink);
+  --global-text-color-light: var(--ink-soft);
+  --global-theme-color: var(--accent);
+  --global-hover-color: var(--highlight);
+  --global-hover-text-color: #ffffff;
+  --global-divider-color: var(--hairline);
+  --global-card-bg-color: var(--paper-raised);
+  --global-highlight-color: var(--highlight);
+  --global-code-bg-color: rgba(27, 58, 92, 0.05);
+  --global-footer-bg-color: #14171b;
+  --global-footer-text-color: rgba(255, 255, 255, 0.62);
+  --global-footer-link-color: #ffffff;
+  --global-back-to-top-bg-color: rgba(27, 58, 92, 0.75);
+  --global-back-to-top-text-color: #ffffff;
+  --global-newsletter-bg-color: var(--paper-raised);
+  --global-newsletter-text-color: var(--ink);
+}
+
+html[data-theme="dark"] {
+  --paper: #15181c;
+  --paper-raised: #1c2026;
+  --ink: #dbd7cf;
+  --ink-soft: #949aa4;
+  --accent: #9dbfe0;
+  --accent-soft: rgba(157, 191, 224, 0.12);
+  --highlight: #e3959f;
+  --highlight-soft: rgba(227, 149, 159, 0.12);
+  --hairline: rgba(219, 215, 207, 0.16);
+
+  --global-bg-color: var(--paper);
+  --global-text-color: var(--ink);
+  --global-text-color-light: var(--ink-soft);
+  --global-theme-color: var(--accent);
+  --global-hover-color: var(--highlight);
+  --global-hover-text-color: #15181c;
+  --global-divider-color: var(--hairline);
+  --global-card-bg-color: var(--paper-raised);
+  --global-highlight-color: var(--highlight);
+  --global-code-bg-color: rgba(157, 191, 224, 0.08);
+  --global-footer-bg-color: #0f1216;
+  --global-footer-text-color: rgba(219, 215, 207, 0.6);
+  --global-footer-link-color: #ffffff;
+  --global-back-to-top-bg-color: rgba(219, 215, 207, 0.8);
+  --global-back-to-top-text-color: #15181c;
+  --global-newsletter-bg-color: var(--paper-raised);
+  --global-newsletter-text-color: var(--ink);
+}
+
+/* -----------------------------------------------------------------------------
+ * 2. Typography
+ * -------------------------------------------------------------------------- */
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.72;
+  letter-spacing: 0.003em;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1,
+    "onum" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--global-bg-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.post-title,
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.004em;
+  line-height: 1.22;
+  color: var(--global-text-color);
+}
+
+h1 {
+  font-size: clamp(2.1rem, 1.4rem + 2.4vw, 2.9rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 1.15rem + 1.2vw, 1.85rem);
+}
+h3 {
+  font-size: 1.28rem;
+}
+h4 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin-bottom: 1.15em;
+}
+
+article p,
+.about-main p,
+.post > article > p {
+  max-width: var(--measure);
+}
+
+strong,
+b {
+  font-weight: 650;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: from-font;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover {
+    color: var(--global-hover-color);
+    text-decoration: underline;
+  }
+}
+
+hr {
+  border: 0;
+  border-top: var(--rule);
+  margin: 2.75rem 0;
+}
+
+blockquote {
+  border-left: 2px solid var(--highlight);
+  background: transparent;
+  padding: 0.15rem 0 0.15rem 1.35rem;
+  margin: 1.8rem 0;
+  font-style: italic;
+  color: var(--global-text-color-light);
+}
+
+code,
+pre,
+.more-info {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+}
+
+/* Small-caps label used across the site (kickers, legends, meta) */
+.ac-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+}
+
+/* -----------------------------------------------------------------------------
+ * 3. Shell: navbar, container, footer
+ * -------------------------------------------------------------------------- */
+
+.navbar {
+  font-family: var(--font-ui);
+  background-color: color-mix(in srgb, var(--global-bg-color) 88%, transparent);
+  backdrop-filter: saturate(1.6) blur(10px);
+  -webkit-backdrop-filter: saturate(1.6) blur(10px);
+  border-bottom: var(--rule);
+  opacity: 1;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+
+  .navbar-brand,
+  .title {
+    font-family: var(--font-display);
+    font-size: 1.14rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-item .nav-link {
+    font-size: 0.83rem;
+    font-weight: 500;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+    padding: 0.35rem 0.1rem;
+    margin: 0 0.62rem;
+    border-bottom: 1.5px solid transparent;
+
+    &:hover {
+      color: var(--global-text-color);
+      border-bottom-color: var(--highlight);
+    }
+  }
+
+  .nav-item.active .nav-link {
+    color: var(--global-text-color);
+    font-weight: 600;
+    border-bottom-color: var(--accent);
+    background-color: transparent;
+
+    &:hover {
+      color: var(--global-text-color);
+    }
+  }
+
+  .dropdown-menu {
+    border-radius: var(--radius);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.1);
+  }
+
+  .dropdown-item {
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+.navbar-toggler .icon-bar {
+  background-color: var(--global-text-color);
+}
+
+.container {
+  max-width: $max-content-width;
+}
+
+/* Footer */
+
+footer.fixed-bottom,
+footer.sticky-bottom {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.035em;
+  border-top: var(--rule);
+  background-color: var(--global-footer-bg-color);
+  color: var(--global-footer-text-color);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+
+  a {
+    color: var(--global-footer-link-color);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 4. Page headers
+ * -------------------------------------------------------------------------- */
+
+.post-header {
+  margin-top: 2.6rem;
+  margin-bottom: 2.2rem;
+  padding-bottom: 1.35rem;
+  border-bottom: var(--rule);
+
+  .post-title {
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+
+  .post-description,
+  .desc {
+    font-family: var(--font-ui);
+    font-size: 0.94rem;
+    line-height: 1.62;
+    color: var(--global-text-color-light);
+    max-width: 62ch;
+    margin-bottom: 0;
+  }
+}
+
+/* A ruled section heading: “Selected Papers ———————” */
+.post > article > h2,
+.about-main > h2,
+.ac-section-title {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3.4rem;
+  margin-bottom: 1.5rem;
+
+  a {
+    color: inherit;
+    &:hover {
+      color: var(--global-hover-color);
+      text-decoration: none;
+    }
+  }
+
+  &::after {
+    content: "";
+    flex: 1 1 auto;
+    height: 1px;
+    background: var(--global-divider-color);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 5. About page
+ * -------------------------------------------------------------------------- */
+
+.profile {
+  .more-info {
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--global-text-color-light);
+    border-left: 2px solid var(--global-divider-color);
+    padding-left: 0.75rem;
+    margin-top: 0.9rem;
+
+    p {
+      display: block;
+      margin: 0 0 0.15rem;
+    }
+  }
+
+  img {
+    border-radius: var(--radius);
+    box-shadow: 0 1px 0 var(--global-divider-color);
+    filter: saturate(0.95);
+  }
+
+  .ac-portrait-frame {
+    padding: 0.4rem;
+    border: var(--rule);
+    border-radius: var(--radius);
+    background: var(--paper-raised);
+  }
+}
+
+.ac-hero {
+  margin-top: 2.6rem;
+  margin-bottom: 0.75rem;
+
+  .ac-kicker {
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 0.85rem;
+    display: block;
+  }
+
+  .ac-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 1.5rem + 2.8vw, 3.35rem);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.6rem;
+  }
+
+  .ac-affiliation {
+    font-family: var(--font-ui);
+    font-size: 0.92rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 1.4rem;
+
+    a {
+      color: var(--global-text-color-light);
+      border-bottom: 1px solid var(--global-divider-color);
+      &:hover {
+        color: var(--global-hover-color);
+        border-bottom-color: currentColor;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .ac-lede {
+    font-size: 1.13rem;
+    line-height: 1.66;
+    max-width: 60ch;
+    margin-bottom: 1.7rem;
+  }
+}
+
+/* Understated buttons that read as letterpress, not SaaS */
+.ac-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.ac-btn {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 1.05rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: var(--radius);
+  color: var(--global-text-color);
+  background: transparent;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--global-hover-text-color);
+    background: var(--accent);
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+
+  &.ac-btn-primary {
+    color: #ffffff;
+    background: var(--accent);
+    border-color: var(--accent);
+
+    &:hover {
+      background: var(--highlight);
+      border-color: var(--highlight);
+      color: #ffffff;
+    }
+  }
+}
+
+html[data-theme="dark"] .ac-btn.ac-btn-primary,
+html[data-theme="dark"] .ac-btn:hover {
+  color: #15181c;
+}
+
+/* Research-focus grid — hairlines instead of cards */
+.ac-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 0;
+  border-top: var(--rule);
+  margin-bottom: 0.5rem;
+}
+
+.ac-grid-item {
+  padding: 1.4rem 1.5rem 1.5rem 0;
+  border-bottom: var(--rule);
+
+  + .ac-grid-item {
+    padding-left: 1.5rem;
+  }
+
+  .ac-grid-index {
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--highlight);
+    display: block;
+    margin-bottom: 0.55rem;
+  }
+
+  h3 {
+    font-size: 1.12rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: var(--global-text-color-light);
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .ac-grid-item + .ac-grid-item {
+    border-left: var(--rule);
+  }
+}
+
+/* Numbered “currently exploring” list */
+.ac-enum {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  counter-reset: ac;
+
+  li {
+    counter-increment: ac;
+    position: relative;
+    padding-left: 2.6rem;
+    padding-bottom: 1.25rem;
+    max-width: var(--measure);
+
+    &::before {
+      content: counter(ac, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0.18em;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--highlight);
+    }
+
+    strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.06rem;
+      font-weight: 600;
+      margin-bottom: 0.18rem;
+    }
+
+    span,
+    p {
+      color: var(--global-text-color-light);
+      font-size: 0.97rem;
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Small stat strip (papers, venues, years) */
+.ac-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+  padding: 1.15rem 0;
+  border-top: var(--rule);
+  border-bottom: var(--rule);
+  margin: 2.2rem 0 0.5rem;
+
+  .ac-stat-value {
+    font-family: var(--font-display);
+    font-size: 1.72rem;
+    font-weight: 600;
+    line-height: 1;
+    display: block;
+  }
+
+  .ac-stat-label {
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+    margin-top: 0.34rem;
+    display: block;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 6. News
+ * -------------------------------------------------------------------------- */
+
+.news {
+  table.table {
+    margin-bottom: 0;
+  }
+
+  td,
+  th {
+    border: 0;
+    border-bottom: var(--rule);
+    padding: 0.72rem 0;
+    vertical-align: baseline;
+    font-size: 0.97rem;
+  }
+
+  tr:last-child td,
+  tr:last-child th {
+    border-bottom: 0;
+  }
+
+  th {
+    font-family: var(--font-ui);
+    font-size: 0.73rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+    white-space: nowrap;
+    padding-right: 1.25rem;
+    width: 8.5rem !important;
+  }
+
+  a.news-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 7. Co-authorship network
+ * -------------------------------------------------------------------------- */
+
+.ac-network {
+  margin: 1.9rem 0 2.4rem;
+  border-top: var(--rule);
+  border-bottom: var(--rule);
+
+  > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.95rem 0;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "";
+      width: 0.46rem;
+      height: 0.46rem;
+      margin-left: auto;
+      border-right: 1.4px solid var(--global-text-color-light);
+      border-bottom: 1.4px solid var(--global-text-color-light);
+      transform: rotate(45deg) translate(-0.12rem, -0.12rem);
+      transition: transform 0.18s ease;
+    }
+
+    &:hover .ac-network-title {
+      color: var(--global-hover-color);
+    }
+  }
+
+  &[open] > summary::after {
+    transform: rotate(-135deg) translate(-0.1rem, -0.1rem);
+  }
+
+  .ac-network-title {
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--global-text-color);
+  }
+
+  .ac-network-meta {
+    font-family: var(--font-ui);
+    font-size: 0.76rem;
+    color: var(--global-text-color-light);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ac-network-caption {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--global-text-color-light);
+    max-width: 72ch;
+    margin-bottom: 0.4rem;
+  }
+
+  .ac-network-key-linked {
+    color: var(--global-text-color);
+    font-weight: 650;
+  }
+}
+
+.ac-network-figure {
+  position: relative;
+  margin: 0.2rem 0 0.4rem;
+}
+
+.ac-network-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  margin: 0 auto;
+  overflow: visible;
+  touch-action: pan-y;
+}
+
+.ac-net-link {
+  stroke: var(--global-text-color-light);
+  stroke-opacity: 0.16;
+  transition:
+    stroke-opacity 0.15s ease,
+    stroke 0.15s ease;
+
+  &.is-ego {
+    stroke: var(--accent);
+    stroke-opacity: 0.3;
+  }
+}
+
+.ac-net-dot {
+  fill: var(--accent);
+  fill-opacity: 0.82;
+  stroke: var(--global-bg-color);
+  stroke-width: 1.5;
+  transition:
+    fill-opacity 0.15s ease,
+    fill 0.15s ease;
+}
+
+.ac-net-label {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  fill: var(--global-text-color-light);
+  pointer-events: none;
+  /* a halo of the page colour keeps names readable where the graph is dense */
+  paint-order: stroke fill;
+  stroke: var(--global-bg-color);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  transition:
+    fill 0.15s ease,
+    fill-opacity 0.15s ease;
+}
+
+.ac-net-node {
+  cursor: default;
+  outline: none;
+
+  &.is-linked {
+    cursor: pointer;
+
+    .ac-net-label {
+      font-weight: 650;
+      fill: var(--global-text-color);
+    }
+  }
+
+  &.is-ego {
+    .ac-net-dot {
+      fill: var(--highlight);
+      fill-opacity: 1;
+    }
+
+    .ac-net-label {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      fill: var(--global-text-color);
+    }
+  }
+
+  &:hover .ac-net-dot,
+  &:focus-visible .ac-net-dot {
+    fill: var(--highlight);
+    fill-opacity: 1;
+  }
+
+  &:focus-visible .ac-net-label {
+    fill: var(--global-text-color);
+    text-decoration: underline;
+  }
+}
+
+/* Isolate a node's collaborations on hover */
+.ac-network.is-focused {
+  .ac-net-link {
+    stroke-opacity: 0.05;
+  }
+
+  .ac-net-link.is-on {
+    stroke: var(--highlight);
+    stroke-opacity: 0.7;
+  }
+
+  .ac-net-dot {
+    fill-opacity: 0.16;
+  }
+
+  .ac-net-label {
+    fill-opacity: 0.22;
+  }
+
+  .ac-net-node.is-on {
+    .ac-net-dot {
+      fill-opacity: 1;
+    }
+
+    .ac-net-label {
+      fill-opacity: 1;
+      fill: var(--global-text-color);
+    }
+  }
+}
+
+.ac-network-tip {
+  position: absolute;
+  z-index: 5;
+  width: 260px;
+  max-width: calc(100% - 16px);
+  padding: 0.65rem 0.8rem 0.7rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--global-divider-color);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  font-family: var(--font-ui);
+  font-size: 0.77rem;
+  line-height: 1.45;
+  color: var(--global-text-color);
+  pointer-events: none;
+
+  strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+  }
+
+  .ac-tip-meta {
+    display: block;
+    color: var(--global-text-color-light);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.45rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: var(--rule);
+    padding-top: 0.4rem;
+  }
+
+  li {
+    color: var(--global-text-color-light);
+    margin-bottom: 0.3rem;
+    font-size: 0.74rem;
+    line-height: 1.4;
+  }
+
+  .ac-tip-venue {
+    display: inline-block;
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-right: 0.35rem;
+  }
+
+  .ac-tip-more {
+    font-style: italic;
+    margin-bottom: 0;
+  }
+}
+
+.ac-network-list {
+  padding: 1.1rem 0 1.3rem;
+  border-top: var(--rule);
+
+  h3 {
+    margin-bottom: 0.7rem;
+  }
+
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.1rem 1.8rem;
+  }
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+
+    &::after {
+      content: "";
+      flex: 1 1 auto;
+      order: 1;
+      border-bottom: 1px dotted var(--global-divider-color);
+      transform: translateY(-0.22em);
+    }
+  }
+
+  .ac-network-count {
+    order: 2;
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--global-text-color-light);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .ac-network .ac-network-meta {
+    display: none;
+  }
+
+  .ac-net-label {
+    font-size: 11px;
+  }
+
+  .ac-network-tip {
+    width: 220px;
+  }
+}
+
+@media print {
+  .ac-network-tip {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 8. Publications
+ * -------------------------------------------------------------------------- */
+
+/* Legend above the bibliography */
+.ac-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding: 0.9rem 0 1.1rem;
+  border-top: var(--rule);
+  border-bottom: var(--rule);
+  margin-bottom: 1.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.79rem;
+  color: var(--global-text-color-light);
+
+  span.ac-swatch {
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 2px;
+    margin-right: 0.45rem;
+    vertical-align: -0.03rem;
+  }
+
+  .ac-legend-item {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+}
+
+.publications {
+  margin-top: 1.6rem;
+
+  /* Year headings from jekyll-scholar */
+  h2.bibliography {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--global-text-color);
+    text-align: left;
+    border-top: 0;
+    border-bottom: var(--rule);
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+    margin-top: 2.9rem;
+    margin-bottom: 0.2rem;
+    opacity: 0.85;
+
+    &:first-of-type {
+      margin-top: 0.6rem;
+    }
+  }
+
+  ol.bibliography {
+    li {
+      position: relative;
+      padding: 1.35rem 0 1.4rem;
+      margin-bottom: 0;
+      border-bottom: var(--rule);
+
+      &:hover .title {
+        color: var(--global-hover-color);
+      }
+    }
+
+    /* Venue chip */
+    .abbr {
+      margin-bottom: 0.45rem;
+
+      abbr {
+        display: inline-block;
+        border-radius: var(--radius);
+        padding: 0.12rem 0.5rem;
+        font-family: var(--font-ui);
+        font-size: 0.67rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none !important;
+        border-bottom: 0 !important;
+        cursor: default;
+
+        a {
+          color: #ffffff;
+        }
+      }
+
+      .award {
+        font-family: var(--font-ui);
+        font-size: 0.67rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-radius: var(--radius);
+        padding: 0.12rem 0.5rem;
+        margin-left: 0.3rem;
+      }
+    }
+
+    .title {
+      font-family: var(--font-display);
+      font-size: 1.16rem;
+      font-weight: 600;
+      line-height: 1.34;
+      letter-spacing: -0.003em;
+      display: block;
+      margin-bottom: 0.3rem;
+      transition: color 0.15s ease;
+    }
+
+    .author {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--global-text-color-light);
+      display: block;
+      margin-bottom: 0.18rem;
+
+      > em {
+        font-style: normal;
+        font-weight: 650;
+        color: var(--global-text-color);
+        border-bottom: 0;
+      }
+    }
+
+    .periodical {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--global-text-color-light);
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+
+    /* Link row */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+
+      a.btn {
+        font-family: var(--font-ui);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 0.25rem 0.7rem !important;
+        border-radius: var(--radius);
+        border: 1px solid var(--global-divider-color);
+        color: var(--global-text-color-light);
+        background: transparent;
+        box-shadow: none;
+
+        &:hover {
+          color: var(--global-hover-text-color);
+          background: var(--accent);
+          border-color: var(--accent);
+        }
+      }
+    }
+
+    /* Abstract / bibtex drawers */
+    .hidden.open {
+      background: var(--accent-soft);
+      border-radius: var(--radius);
+      margin-top: 0.8rem;
+      padding: 0.35rem 0.25rem;
+      font-size: 0.92rem;
+      line-height: 1.62;
+    }
+
+    div.abstract.hidden.open {
+      border: 0;
+    }
+
+    .preview {
+      border: var(--rule);
+      border-radius: var(--radius);
+      padding: 0.3rem;
+      background: var(--paper-raised);
+    }
+  }
+}
+
+html[data-theme="dark"] .publications ol.bibliography .links a.btn:hover {
+  color: #15181c;
+}
+
+/* Bibsearch input */
+.bibsearch-form-input,
+.newsletter-form-input {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--global-divider-color);
+  background: var(--paper-raised);
+  color: var(--global-text-color);
+  padding: 0.55rem 0.85rem;
+
+  &:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+    outline: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 9. Repositories
+ * -------------------------------------------------------------------------- */
+
+.ac-gh-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  padding: 0 0 1.4rem;
+  border-bottom: var(--rule);
+  margin-bottom: 0.4rem;
+}
+
+.ac-gh-avatar {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: var(--rule);
+  padding: 3px;
+  flex: 0 0 auto;
+}
+
+.ac-gh-id {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  .ac-gh-handle {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--global-text-color);
+
+    &:hover {
+      color: var(--global-hover-color);
+      text-decoration: none;
+    }
+  }
+
+  .ac-gh-name {
+    font-family: var(--font-ui);
+    font-size: 0.84rem;
+    color: var(--global-text-color-light);
+    margin-top: 0.15rem;
+  }
+}
+
+.ac-gh-stats {
+  display: flex;
+  gap: 2rem;
+  margin: 0 0 0 auto;
+  padding: 0;
+
+  div {
+    text-align: right;
+  }
+
+  dt {
+    font-family: var(--font-ui);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+    margin-bottom: 0.1rem;
+  }
+
+  dd {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin: 0;
+  }
+}
+
+.ac-repo-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--global-divider-color);
+  border: var(--rule);
+}
+
+.ac-repo {
+  background: var(--global-bg-color);
+  padding: 1.2rem 1.3rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background: var(--accent-soft);
+  }
+}
+
+.ac-repo-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  justify-content: space-between;
+}
+
+.ac-repo-link {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  line-height: 1.35;
+  min-width: 0;
+  overflow-wrap: anywhere;
+
+  .ac-repo-owner {
+    color: var(--global-text-color-light);
+    font-weight: 400;
+  }
+
+  .ac-repo-name {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    .ac-repo-name {
+      color: var(--global-hover-color);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+  }
+}
+
+.ac-repo-paper {
+  flex: 0 0 auto;
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--highlight);
+  border: 1px solid currentColor;
+  border-radius: var(--radius);
+  padding: 0.1rem 0.4rem;
+  white-space: nowrap;
+}
+
+.ac-repo-note {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--global-text-color-light);
+  margin: 0;
+  max-width: none;
+}
+
+.ac-repo-icon {
+  width: 0.72rem;
+  height: 0.72rem;
+  vertical-align: -0.09rem;
+  margin-right: 0.22rem;
+}
+
+.ac-repo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1.05rem;
+  margin-top: auto;
+  padding-top: 0.35rem;
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  color: var(--global-text-color-light);
+  font-variant-numeric: tabular-nums;
+
+  abbr {
+    text-decoration: none;
+    border: 0;
+  }
+}
+
+.ac-repo-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.ac-repo-dot {
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 50%;
+  background: var(--global-text-color-light);
+  display: inline-block;
+}
+
+.ac-repo-updated {
+  margin-left: auto;
+}
+
+.ac-repo-footnote {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--global-text-color-light);
+  margin-top: 1.1rem;
+  max-width: none;
+}
+
+@media (max-width: 575.98px) {
+  .ac-gh-stats {
+    margin-left: 0;
+    gap: 1.6rem;
+    width: 100%;
+
+    div {
+      text-align: left;
+    }
+  }
+
+  .ac-repo-updated {
+    margin-left: 0;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 10. Cards & projects
+ * -------------------------------------------------------------------------- */
+
+.card {
+  border: var(--rule) !important;
+  border-radius: var(--radius);
+  box-shadow: none !important;
+  background-color: var(--global-card-bg-color);
+  transition:
+    border-color 0.18s ease,
+    transform 0.18s ease;
+
+  &:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-2px);
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.14rem;
+    font-weight: 600;
+  }
+
+  .card-text,
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--global-text-color-light);
+  }
+}
+
+.projects .card-item .card-title,
+.projects .grid-item .card-title {
+  font-family: var(--font-display);
+}
+
+/* -----------------------------------------------------------------------------
+ * 11. CV
+ * -------------------------------------------------------------------------- */
+
+.cv {
+  .card {
+    border: 0 !important;
+    background: transparent;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .card-title,
+  h1 {
+    font-family: var(--font-display);
+  }
+
+  .list-group-item {
+    background: transparent;
+    border: 0;
+    border-bottom: var(--rule);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--global-text-color);
+  }
+
+  .company,
+  .institution,
+  .location {
+    font-family: var(--font-ui);
+    font-size: 0.86rem;
+    color: var(--global-text-color-light);
+  }
+}
+
+.date-column,
+.table-cv-map th {
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+}
+
+#toc-sidebar {
+  font-family: var(--font-ui);
+  font-size: 0.84rem;
+
+  a {
+    color: var(--global-text-color-light);
+    &:hover {
+      color: var(--global-hover-color);
+    }
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 12. Contact strip
+ * -------------------------------------------------------------------------- */
+
+.social {
+  margin-top: 3rem;
+  padding-top: 1.8rem;
+  border-top: var(--rule);
+  text-align: center;
+
+  .contact-icons {
+    font-size: 1.45rem;
+    margin-bottom: 0.9rem;
+
+    a {
+      color: var(--global-text-color-light);
+      padding: 0 0.42rem;
+
+      &:hover {
+        color: var(--global-hover-color);
+        text-decoration: none;
+      }
+    }
+  }
+
+  .contact-note {
+    font-family: var(--font-ui);
+    font-size: 0.88rem;
+    line-height: 1.62;
+    color: var(--global-text-color-light);
+    max-width: 56ch;
+    margin: 0 auto;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 13. Misc & a11y
+ * -------------------------------------------------------------------------- */
+
+::selection {
+  background: var(--highlight-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+img,
+figure img {
+  border-radius: var(--radius);
+}
+
+table.table:not(.table-cv-map) {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 575.98px) {
+  body {
+    font-size: 1.0125rem;
+  }
+
+  .ac-hero {
+    margin-top: 1.8rem;
+  }
+
+  .ac-grid-item {
+    padding-right: 0;
+  }
+
+  .ac-grid-item + .ac-grid-item {
+    padding-left: 0;
+  }
+
+  .ac-stats {
+    gap: 1.5rem;
+  }
+
+  .news th {
+    width: 6.5rem !important;
+    font-size: 0.68rem;
+  }
+}
+
+@media print {
+  .navbar,
+  footer,
+  #back-to-top,
+  .social {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+    font-size: 11pt;
+  }
+}

@@ -1,0 +1,419 @@
+{% assign graph = site.data.coauthor_graph %}
+{% if graph and graph.nodes.size > 1 %}
+  <details class="ac-network" id="ac-network" open>
+    <summary>
+      <span class="ac-network-title">Co-authorship network</span>
+      <span class="ac-network-meta">
+        {{ graph.author_count }} collaborators &middot; {{ graph.paper_count }} papers
+      </span>
+    </summary>
+
+    <div class="ac-network-body">
+      <p class="ac-network-caption">
+        Every co-author on this bibliography. Distance from the centre and node size reflect how
+        many papers we share; links join authors who appear on the same paper. Hover a name to
+        isolate its collaborations &mdash; names in
+        <span class="ac-network-key-linked">this weight</span> link to a public profile.
+      </p>
+
+      <figure class="ac-network-figure">
+        <svg
+          id="ac-network-svg"
+          class="ac-network-svg"
+          role="img"
+          aria-labelledby="ac-network-svg-title ac-network-svg-desc"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <title id="ac-network-svg-title">Co-authorship network</title>
+          <desc id="ac-network-svg-desc">
+            A network diagram of {{ graph.author_count }} co-authors across {{ graph.paper_count }} papers.
+            The same information is listed in the table of frequent collaborators below.
+          </desc>
+        </svg>
+        <div class="ac-network-tip" id="ac-network-tip" hidden></div>
+      </figure>
+
+      <div class="ac-network-list">
+        <h3 class="ac-label">Frequent collaborators</h3>
+        <ol>
+          {% assign ranked = graph.nodes | sort: 'papers' | reverse %}
+          {% for person in ranked limit: 9 %}
+            {% unless person.ego %}
+              <li>
+                {% if person.url %}
+                  <a href="{{ person.url }}" target="_blank" rel="noopener">{{ person.name }}</a>
+                {% else %}
+                  <span>{{ person.name }}</span>
+                {% endif %}
+                <span class="ac-network-count">{{ person.papers }}</span>
+              </li>
+            {% endunless %}
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+
+    <script type="application/json" id="ac-network-data">{{ graph | jsonify }}</script>
+    <script>
+      /* Co-authorship network — deterministic force layout, no external libraries.
+         The simulation is run to convergence before the first paint, so the figure
+         never jitters and honours prefers-reduced-motion by construction. */
+      (function () {
+        var dataEl = document.getElementById('ac-network-data');
+        var svg = document.getElementById('ac-network-svg');
+        var tip = document.getElementById('ac-network-tip');
+        if (!dataEl || !svg) return;
+
+        var G;
+        try {
+          G = JSON.parse(dataEl.textContent);
+        } catch (e) {
+          return;
+        }
+        if (!G || !G.nodes || G.nodes.length < 2) return;
+
+        var W = 920,
+          H = 520,
+          NS = 'http://www.w3.org/2000/svg';
+        svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+        /* ---- model ---------------------------------------------------------- */
+        var byId = {};
+        var maxPapers = 1;
+        G.nodes.forEach(function (n) {
+          if (n.papers > maxPapers && !n.ego) maxPapers = n.papers;
+        });
+
+        // deterministic pseudo-random start: same layout on every build
+        var seed = 20260912;
+        function rnd() {
+          seed = (seed * 1664525 + 1013904223) % 4294967296;
+          return seed / 4294967296;
+        }
+
+        var nodes = G.nodes.map(function (n, i) {
+          var a = (i / G.nodes.length) * Math.PI * 2 + rnd() * 0.4;
+          var spread = n.ego ? 0 : 150 + (1 - n.papers / maxPapers) * 110 + rnd() * 40;
+          var node = {
+            id: n.id,
+            name: n.name,
+            short: n.short,
+            papers: n.papers,
+            url: n.url,
+            ego: !!n.ego,
+            firstYear: n.first_year,
+            lastYear: n.last_year,
+            x: W / 2 + Math.cos(a) * spread,
+            y: H / 2 + Math.sin(a) * spread * 0.72,
+            vx: 0,
+            vy: 0
+          };
+          node.r = node.ego ? 19 : 4.2 + 2.9 * Math.sqrt(node.papers);
+          byId[node.id] = node;
+          return node;
+        });
+
+        var links = G.links
+          .map(function (l) {
+            var s = byId[l.source],
+              t = byId[l.target];
+            if (!s || !t) return null;
+            return { s: s, t: t, w: l.weight, ego: s.ego || t.ego };
+          })
+          .filter(Boolean);
+
+        var papersByPair = {};
+        (G.papers || []).forEach(function (p) {
+          (p.authors || []).forEach(function (a) {
+            papersByPair[a] = papersByPair[a] || [];
+            papersByPair[a].push(p);
+          });
+        });
+
+        var maxW = links.reduce(function (m, l) {
+          return Math.max(m, l.w);
+        }, 1);
+
+        /* ---- layout --------------------------------------------------------- */
+        // label half-width, used so names don't collide
+        function halfLabel(n) {
+          return n.ego ? (n.name.length * 6.4) / 2 + 16 : (n.short.length * 3.5) / 2 + 7;
+        }
+
+        function tick(alpha) {
+          // repulsion (O(n^2) is fine at this scale)
+          for (var i = 0; i < nodes.length; i++) {
+            for (var j = i + 1; j < nodes.length; j++) {
+              var a = nodes[i],
+                b = nodes[j];
+              var dx = b.x - a.x,
+                dy = b.y - a.y;
+              var d2 = dx * dx + dy * dy || 0.01;
+              var d = Math.sqrt(d2);
+              var f = (4200 * alpha) / d2;
+              var ux = (dx / d) * f,
+                uy = (dy / d) * f;
+              a.vx -= ux;
+              a.vy -= uy;
+              b.vx += ux;
+              b.vy += uy;
+            }
+          }
+          // links pull, shorter when the pair shares more papers
+          links.forEach(function (l) {
+            var rest = 190 - 78 * (Math.log(1 + l.w) / Math.log(1 + maxW));
+            var dx = l.t.x - l.s.x,
+              dy = l.t.y - l.s.y;
+            var d = Math.sqrt(dx * dx + dy * dy) || 0.01;
+            var f = ((d - rest) / d) * 0.045 * alpha * (0.45 + 0.55 * (l.w / maxW));
+            var ux = dx * f,
+              uy = dy * f;
+            l.s.vx += ux;
+            l.s.vy += uy;
+            l.t.vx -= ux;
+            l.t.vy -= uy;
+          });
+          // gravity toward centre, slightly flattened so the figure fills a wide box
+          nodes.forEach(function (n) {
+            n.vx += (W / 2 - n.x) * 0.008 * alpha;
+            n.vy += (H / 2 - n.y) * 0.03 * alpha;
+          });
+          // collision, including the label box
+          for (var k = 0; k < nodes.length; k++) {
+            for (var m = k + 1; m < nodes.length; m++) {
+              var p = nodes[k],
+                q = nodes[m];
+              var ddx = q.x - p.x,
+                ddy = q.y - p.y;
+              var dist = Math.sqrt(ddx * ddx + ddy * ddy) || 0.01;
+              var min = halfLabel(p) + halfLabel(q);
+              var minY = p.r + q.r + (p.ego || q.ego ? 30 : 13);
+              if (dist < min && Math.abs(ddy) < minY) {
+                var push = ((min - dist) / dist) * 0.22;
+                p.x -= ddx * push;
+                p.y -= ddy * push * 0.6;
+                q.x += ddx * push;
+                q.y += ddy * push * 0.6;
+              }
+            }
+          }
+          // integrate
+          nodes.forEach(function (n) {
+            if (n.ego) {
+              n.x = W / 2;
+              n.y = H / 2;
+              n.vx = n.vy = 0;
+              return;
+            }
+            n.vx *= 0.82;
+            n.vy *= 0.82;
+            n.x += n.vx;
+            n.y += n.vy;
+          });
+        }
+
+        for (var step = 0; step < 420; step++) {
+          tick(Math.max(0.06, 1 - step / 420));
+        }
+
+        // frame the drawing on its own bounding box, so the figure fills its width
+        var pad = 26;
+        var minX = Infinity,
+          maxX = -Infinity,
+          minY = Infinity,
+          maxY = -Infinity;
+        nodes.forEach(function (n) {
+          minX = Math.min(minX, n.x - halfLabel(n));
+          maxX = Math.max(maxX, n.x + halfLabel(n));
+          minY = Math.min(minY, n.y - n.r - (n.ego ? 32 : 22));
+          maxY = Math.max(maxY, n.y + n.r + (n.ego ? 32 : 30));
+        });
+        var vb = {
+          x: minX - pad,
+          y: minY - pad,
+          w: maxX - minX + pad * 2,
+          h: maxY - minY + pad * 2
+        };
+        svg.setAttribute('viewBox', vb.x + ' ' + vb.y + ' ' + vb.w + ' ' + vb.h);
+
+        /* ---- render --------------------------------------------------------- */
+        function el(name, attrs) {
+          var e = document.createElementNS(NS, name);
+          for (var k in attrs) e.setAttribute(k, attrs[k]);
+          return e;
+        }
+
+        var gLinks = el('g', { class: 'ac-net-links' });
+        var gNodes = el('g', { class: 'ac-net-nodes' });
+        svg.appendChild(gLinks);
+        svg.appendChild(gNodes);
+
+        links
+          .slice()
+          .sort(function (a, b) {
+            return a.w - b.w;
+          })
+          .forEach(function (l) {
+            var line = el('line', {
+              x1: l.s.x,
+              y1: l.s.y,
+              x2: l.t.x,
+              y2: l.t.y,
+              'stroke-width': (0.5 + 1.9 * (l.w / maxW)).toFixed(2),
+              class: 'ac-net-link' + (l.ego ? ' is-ego' : '')
+            });
+            l.el = line;
+            gLinks.appendChild(line);
+          });
+
+        /* Place labels: try below the node, then above, then further out, taking the
+           first slot that clears every label already placed. Ego goes first. */
+        var charW = 3.5,
+          lineH = 12;
+        var placed = [];
+        function boxFor(n, dy) {
+          var w = (n.ego ? n.name.length * 6.6 : n.short.length * charW) + 6;
+          var h = n.ego ? 17 : lineH;
+          return { x1: n.x - w / 2, x2: n.x + w / 2, y1: n.y + dy - h, y2: n.y + dy + 3 };
+        }
+        function hits(b) {
+          for (var i = 0; i < placed.length; i++) {
+            var o = placed[i];
+            if (b.x1 < o.x2 && b.x2 > o.x1 && b.y1 < o.y2 && b.y2 > o.y1) return true;
+          }
+          return false;
+        }
+        nodes
+          .slice()
+          .sort(function (a, b) {
+            return (b.ego ? 1e6 : b.papers) - (a.ego ? 1e6 : a.papers);
+          })
+          .forEach(function (n) {
+            var below = n.r + (n.ego ? 22 : 11);
+            var above = -(n.r + (n.ego ? 12 : 5));
+            var options = n.ego ? [above, below] : [below, above, below + lineH, above - lineH];
+            var chosen = options[0];
+            for (var i = 0; i < options.length; i++) {
+              if (!hits(boxFor(n, options[i]))) {
+                chosen = options[i];
+                break;
+              }
+            }
+            n.labelDy = chosen;
+            placed.push(boxFor(n, chosen));
+          });
+
+        nodes.forEach(function (n) {
+          var g = el('g', {
+            class: 'ac-net-node' + (n.ego ? ' is-ego' : '') + (n.url ? ' is-linked' : ''),
+            tabindex: '0',
+            role: n.url ? 'link' : 'img',
+            'aria-label':
+              n.name + ', ' + n.papers + (n.papers === 1 ? ' paper' : ' papers') + ' in this bibliography'
+          });
+          g.appendChild(el('circle', { cx: n.x, cy: n.y, r: n.r, class: 'ac-net-dot' }));
+          var label = el('text', {
+            x: n.x,
+            y: n.y + n.labelDy,
+            'text-anchor': 'middle',
+            class: 'ac-net-label'
+          });
+          label.textContent = n.ego ? n.name : n.short;
+          g.appendChild(label);
+          n.el = g;
+          gNodes.appendChild(g);
+        });
+
+        /* ---- interaction ---------------------------------------------------- */
+        var root = document.getElementById('ac-network');
+
+        function focus(n) {
+          root.classList.add('is-focused');
+          var near = {};
+          near[n.id] = true;
+          links.forEach(function (l) {
+            var on = l.s === n || l.t === n;
+            l.el.classList.toggle('is-on', on);
+            if (on) {
+              near[l.s.id] = true;
+              near[l.t.id] = true;
+            }
+          });
+          nodes.forEach(function (m) {
+            m.el.classList.toggle('is-on', !!near[m.id]);
+          });
+
+          var all = papersByPair[n.id] || [];
+          var shared = all.slice(0, 3);
+          function clip(t) {
+            return t.length > 88 ? t.slice(0, 86).replace(/[\s,;:]+$/, '') + '…' : t;
+          }
+          var years = n.firstYear && n.lastYear ? (n.firstYear === n.lastYear ? n.firstYear : n.firstYear + '–' + n.lastYear) : '';
+          var html =
+            '<strong>' +
+            n.name +
+            '</strong><span class="ac-tip-meta">' +
+            n.papers +
+            (n.papers === 1 ? ' paper' : ' papers') +
+            (years ? ' · ' + years : '') +
+            '</span>';
+          if (shared.length) {
+            html += '<ul>';
+            shared.forEach(function (p) {
+              html +=
+                '<li><span class="ac-tip-venue">' + (p.venue || p.year || '') + '</span>' + clip(p.title) + '</li>';
+            });
+            if (all.length > shared.length) {
+              html += '<li class="ac-tip-more">+' + (all.length - shared.length) + ' more</li>';
+            }
+            html += '</ul>';
+          }
+          tip.innerHTML = html;
+          tip.hidden = false;
+
+          var fig = svg.parentElement.getBoundingClientRect();
+          var dot = n.el.querySelector('circle').getBoundingClientRect();
+          var left = dot.left - fig.left + dot.width / 2 - 130;
+          var top = dot.bottom - fig.top + 10;
+          tip.style.left = Math.max(6, Math.min(fig.width - 266, left)) + 'px';
+          tip.style.top = Math.max(6, Math.min(fig.height - 40, top)) + 'px';
+        }
+
+        function blur() {
+          root.classList.remove('is-focused');
+          tip.hidden = true;
+          links.forEach(function (l) {
+            l.el.classList.remove('is-on');
+          });
+          nodes.forEach(function (m) {
+            m.el.classList.remove('is-on');
+          });
+        }
+
+        nodes.forEach(function (n) {
+          n.el.addEventListener('mouseenter', function () {
+            focus(n);
+          });
+          n.el.addEventListener('focus', function () {
+            focus(n);
+          });
+          n.el.addEventListener('mouseleave', blur);
+          n.el.addEventListener('blur', blur);
+          if (n.url) {
+            n.el.addEventListener('click', function () {
+              window.open(n.url, '_blank', 'noopener');
+            });
+            n.el.addEventListener('keydown', function (ev) {
+              if (ev.key === 'Enter' || ev.key === ' ') {
+                ev.preventDefault();
+                window.open(n.url, '_blank', 'noopener');
+              }
+            });
+          }
+        });
+
+        svg.addEventListener('mouseleave', blur);
+      })();
+    </script>
+  </details>
+{% endif %}

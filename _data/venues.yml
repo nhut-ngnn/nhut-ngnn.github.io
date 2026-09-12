@@ -24,6 +24,9 @@
 "INIS":
   url: https://publications.eai.eu/index.php/inis/index
   color: "#600"
+"INS":
+  url: https://publications.eai.eu/index.php/inis/index
+  color: "#600"
 
 "ICTC":
   url: https://ictc.org/

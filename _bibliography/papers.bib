@@ -1,5 +1,22 @@
 ---
 ---
+@article{TRANG2026124138,
+title = {Towards effective multimodal emotion recognition in conversations via joint multi-graph learning and self-distillation},
+journal = {Information Sciences},
+pages = {124138},
+year = {2026},
+issn = {0020-0255},
+doi = {10.1016/j.ins.2026.124138},
+html = {https://www.sciencedirect.com/science/article/pii/S0020025526010698},
+author = {Hoang Khang Trang and Bao Quoc Nguyen and Viet Vinh Khanh Dinh and Nhut Minh Nguyen and Nhat Truong Pham and Phuong-Nam Tran and Phuong Luu Vo and Duc Ngoc Minh Dang},
+keywords = {Gated multimodal unit, Graph learning, Self-distillation, Emotion recognition in conversation},
+abstract = {Emotion Recognition in Conversation (ERC) is a crucial component of empathetic dialogue systems, enabling conversational agents to comprehend users’ expressed emotions and respond appropriately. In recent years, ERC has increasingly evolved toward multimodal approaches, particularly graph-based ones, that leverage complementary signals to enhance effectiveness. Although these approaches show promise, they face challenges in effectively modeling relational structures, computing the contribution of each modality during fusion, and regularizing unimodal representations to prevent modality bias. In this study, we propose DiGemo, a novel multimodal ERC framework that employs Transformer-based contextual modeling and graph-based learning to jointly capture both sequential dependencies within conversations and complex inter-utterance relational structures across modalities. To effectively balance and exploit multimodal information, we employ an adaptive fusion approach based on the Gated Multimodal Unit to estimate the contributions of each modality. In addition, we integrate a self-distillation training strategy to regularize unimodal representations, allowing each modality to learn from the fused multimodal representation and achieve more stable learning. DiGemo achieves Weighted F1-scores of 74.44% and 65.92% on the IEMOCAP and MELD datasets, respectively. These results validate the effectiveness of jointly modeling conversational context, cross-modal interactions, adaptive contributions of modalities, and self-distillation for multimodal ERC.},
+abbr      = {INS},
+bibtex_show=True,
+code={https://github.com/aita-lab/DiGemo},
+dimensions={true},
+preview={DiGemo.jpg}
+}
 @article{Nguyen19082026,
 author = {Thanh Trung Nguyen and Nhut Minh Nguyen and Nam Van Hai Phan and Khoa Minh Nguyen and Trung Thanh Pham and Phuong-Nam Tran and Cuong Tuan Nguyen and Duc Ngoc Minh Dang},
 abbr      = {TJIT},
@@ -16,7 +33,7 @@ html = {https://doi.org/10.1080/24751839.2026.2716432},
 eprint = {https://doi.org/10.1080/24751839.2026.2716432},
 abstract={Handwritten Mathematical Expression Recognition (HMER) is challenging due to complex structural relationships, implicit symbols, and variations in handwriting styles. Therefore, this paper presents a novel approach combining multi-task learning (MTL) with advanced attention mechanisms, including the Convolutional Block Attention Module (CBAM) integrated into the Attention Refinement Module (ARM), to optimize attention mechanisms, enable context-aware interpretation, and improve the generalization of the architecture. Integrating MTL enhances the model's ability to work well on the main task. By sharing knowledge across tasks, the model reduces overfitting and leads to better generalization in the inference stage. Advanced attention mechanisms refine the attention weights to effectively capture highly complex structural expressions and implicit corrections. Our approach addresses the limitations of traditional methods and improves the Expression Recognition Rate on CROHME datasets. Experimental results show that our model has competitive performance and fewer parameters when compared with the state-of-the-art.},
 preview={TJIT_HAMER.jpg},
-dimension={true},
+dimensions={true},
 code={https://github.com/aita-lab/HMER-CBARM-MTL}}
 
 
@@ -192,8 +209,10 @@ code={https://github.com/aita-lab/HMER-CBARM-MTL}}
   code = {https://github.com/nhut-ngnn/GloMER},
   selected = {false},
   preview = {GloMER.jpg},
-  dimensions={false},
-  note = {To appear}
+  dimensions={true},
+  abstract={Speech Emotion Recognition (SER) enhances Human-Computer Interaction (HCI) across healthcare, education, and customer service. Although multimodal approaches that combine audio and text show promise, they face challenges in aligning heterogeneous modalities and achieving balanced feature fusion. In this work, we propose GloMER, a novel multimodal SER architecture that integrates a self-alignment strategy with contrastive learning and a Gated Multimodal Unit (GMU) for adaptive fusion. The self-alignment mechanism ensures semantic consistency while preserving modality diversity. The GMU dynamically regulates modality contributions, ensuring balanced integration and context-aware representations under imbalanced conditions. We evaluate GloMER, achieving state-of-the-art (SOTA) on two benchmark datasets, delivering consistent improvements in multimodal emotion recognition. Ablation studies show that combining classification with alignment improves embedding discriminability, while gated fusion balances modalities and captures complementary cues. These findings establish GloMER as a robust framework for advancing multimodal emotion recognition.},
+  doi={10.1007/978-3-032-36547-7_7},
+  html={https://link.springer.com/chapter/10.1007/978-3-032-36547-7_7}
 }
 
 @INPROCEEDINGS{Phan2025DAAL,
@@ -209,8 +228,10 @@ code={https://github.com/aita-lab/HMER-CBARM-MTL}}
   code = {https://github.com/TaiDuc1001/DAAL},
   selected = {false},
   preview = {DAAL.jpg},
-  dimensions={false},
-  note = {To appear}
+  abstract ={The high cost of annotating vast datasets poses a significant challenge in object detection, hindering the development of robust models. By selectively annotating the most instructive samples, active learning has become a viable strategy for addressing this problem and improving model performance and labeling efficiency. However, traditional active learning techniques frequently fail to balance the two main types of model uncertainty: epistemic uncertainty, which captures uncertainty in object classification, and aleatoric uncertainty, which reflects inherent ambiguity in object presence and localization. In this paper, we introduce Dual Ambiguity Active Learning (DAAL), a novel framework that quantifies and combines both epistemic and aleatoric ambiguity into a single, weighted score. Epistemic ambiguity measures the model's indecision in assigning semantic labels, while aleatoric ambiguity assesses the conviction in object presence and localization. By combining these, DAAL selects the most informative images for annotation, optimizing model performance under limited labeling budgets. Extensive experiments on popular benchmarks demonstrate that DAAL consistently outperforms traditional methods, achieving superior accuracy under the same limited labeling budget. This affirms its effectiveness in creating more efficient annotation workflows for object detection.},
+  dimensions={true},
+  doi={10.1007/978-3-032-36547-7_32},
+  html={https://link.springer.com/chapter/10.1007/978-3-032-36547-7_32#citeas}
 }
 
 @INPROCEEDINGS{nguyen2025CemoBAM,

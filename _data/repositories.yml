@@ -1,12 +1,39 @@
+# Repositories shown on /repositories/.
+#
+#   repo  — owner/name on GitHub (required)
+#   name  — shorter label to show instead of the repository name (optional)
+#   note  — one line in your own words; this is what readers see, and it is also
+#           the fallback if GitHub cannot be reached
+#   paper — the publication the code belongs to, shown as a chip
+#
+# Stars, forks, language and last-updated are fetched live from the GitHub API
+# (one request per owner, only when the section scrolls into view).
+
 github_users:
   - nhut-ngnn
 
-repo_description_lines_max: 2
-
 github_repos:
-  - nhut-ngnn/Voice-Based-Age-and-Gender-recognize-A-Comparative-Study-of-LSTM-RezoNet-and-Hybrid-CNNs-BiLSTM
-  - aita-lab/awesome-multimodal-fusion-emotion-recognition
-  - trungtndev/handwritten_mathematical_expressions_with_multi_task_learning
-  - nhut-ngnn/CemoBAM
-  - nhut-ngnn/GloMER
-  - aita-lab/FleSER
+  - repo: aita-lab/FleSER
+    note: Dynamic fuzzy membership with attention fusion for multimodal emotion recognition.
+    paper: EAAI 
+
+  - repo: nhut-ngnn/CemoBAM
+    note: Heterogeneous graph networks and cross-modal attention for emotion recognition.
+    paper: APNOMS 2025
+
+  - repo: nhut-ngnn/Prompt4MER
+    note: Prompt-Guided Missing Modality Completion for Multimodal Emotion Recognition
+    paper: APSIPA 2026
+
+  - repo: aita-lab/awesome-multimodal-fusion-emotion-recognition
+    note: A curated reading list of multimodal fusion methods for emotion recognition, kept alongside our survey.
+    paper: EAAI
+
+  - repo: trungtndev/handwritten_mathematical_expressions_with_multi_task_learning
+    name: handwritten_math_expressions
+    note: Convolutional block attention refinement and multi-task learning for handwritten mathematical expression recognition.
+    paper: TJIT 2026
+
+  - repo: nhut-ngnn/AURORA
+    note: Audio-Guided Repair Gate for ASR-Robust Speech Emotion Recognition
+    paper: ATC 2026
