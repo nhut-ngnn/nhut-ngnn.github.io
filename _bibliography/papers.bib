@@ -1,5 +1,39 @@
 ---
 ---
+@INPROCEEDINGS{Nguyen2026Prompt4MER,
+  abbr={APSIPA},
+  bibtex_show=True,
+  title = {Prompt-Guided Missing Modality Completion for Multimodal Emotion Recognition},
+  author = {Nguyen, Nhut Minh and Pham, Nhat Truong and Hoang, Quang Nhan and Dang-Ngoc, Hanh and Nguyen, Truc Mai Anh and Dang, Duc Ngoc Minh},
+  year = {2026},
+  month = {November},
+  address = {Bangkok, Thailand},
+  booktitle = {Proceedings of 2026 2026 Asia Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC)},
+  selected = {false},
+  preview = {Prompt4MER.jpg},
+  dimensions={false},
+  code={https://github.com/aita-lab/Prompt4MER},
+  abstract={Multimodal Emotion Recognition (MER) is an effective approach to recognizing human emotions by combining complementary information from multiple modalities. However, in real-world scenarios, collecting complete multimodal data during inference is challenging due to environmental noise and errors in automatic speech recognition. These issues lead to missing modality situations, degrading the performance of MER systems. To address these challenges, we propose Prompt4MER, a prompt-learning-based framework designed to enhance MER robustness under missing modality conditions. Prompt4MER employs a two-stage training strategy, including pre-training with all modalities and fine-tuning under missing modality conditions. The model bridges the gap between training with complete data and inference with incomplete data. We further introduce a Learnable Missing Modality Prompt (LMMP) module that combines modality-specific prompts and missing modality prompts to provide learnable missing-modality surrogate tokens that maintain modality-aware presentation under incomplete inputs. In addition, we design a Text-Guided Cross-Modal Fusion module that uses textual information as a semantic anchor to integrate complementary audio and visual cues. Experiments on IEMOCAP and MSP-IMPROV under six missing modality configurations demonstrate that Prompt4MER achieves strong average performance across six missing-modality configurations compared with existing missing-modality MER baselines.},
+  note={To appear.}
+}
+
+@INPROCEEDINGS{Nguyen2026RSL-TAM,
+  abbr={APSIPA},
+  bibtex_show=True,
+  title = {Relational and Sequential Learning for Transition-Aware Multimodal Emotion Recognition in Conversation},
+  author = {Nguyen, Quoc Bao and Trang, Hoang Khang and Nguyen, Nhut Minh and Dang, Duc Ngoc Minh},
+  year = {2026},
+  month = {November},
+  address = {Bangkok, Thailand},
+  booktitle = {Proceedings of 2026 2026 Asia Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC)},
+  selected = {false},
+  preview = {RSL-TAM.jpg},
+  dimensions={false},
+  code={https://github.com/nqbao-ng/RSL-TAM},
+  abstract={Multimodal Emotion Recognition in Conversation (ERC) aims to effectively integrate textual, acoustic, and visual cues to capture human interactions in intelligent service systems. However, existing methods often model conversational context in a unified manner without explicitly capturing how emotions evolve across consecutive utterances. To address these limitations, we propose RSL-TAM, a robust framework that integrates speaker-aware relational subgraphs with reinforcement learning (RL) for Multimodal ERC. Specifically, we construct two relational subgraphs to model emotional continuity within the same speaker and emotional influences across different speakers. The proposed design allows the model to capture speaker-specific and cross-speaker dependencies through separate Graph Attention Network (GAT) based learning. Then, the RL module treats the fused multimodal hidden representation as sequential states to feed into a Q-value policy head and optimizes the policy head with a Bellman-based temporal-difference objective and an emotion-shift-aware reward. This encourages the final fused representations to become more consistent and better capture emotion transitions across consecutive utterances. Experimental results demonstrate that RSL-TAM outperforms current competitive methods by 3.79% in Accuracy on the IEMOCAP dataset and 0.58% in Accuracy on the MELD dataset.},
+  note={To appear.}
+}
+
 
 @INPROCEEDINGS{Nguyen2026AURORA,
   abbr={ATC},
@@ -61,9 +95,10 @@
   booktitle = {Proceedings of the 10th APWeb-WAIM joint International Conference on Web and Big Data},
   selected = {false},
   preview = {CorrTie-Architecture.png},
-  dimensions={false},
-  abstract={Vision-language models (VLMs) provide strong transferable representations for visual recognition, but adapting them to downstream image classification tasks remains challenging when labeled data are scarce. Active learning (AL) reduces annotation cost by selecting informative unlabeled samples for oracle labeling; however, most AL strategies use oracle feedback only to expand the labeled training set. The correction event between a model prediction and the oracle label is usually not reused to guide future acquisition. To address this limitation, we propose Correction-aware Tie-breaking (CorrTie), a lightweight post-acquisition reranker for AL with VLMs. CorrTie keeps the base AL strategy unchanged and uses past oracle corrections to estimate class-wise correction risk. This risk is then used to rerank near-tie candidates while preserving the original acquisition ranking as the primary signal. Experiments with CoOp prompt learning on four image classification benchmarks and five base AL strategies show that CorrTie improves the average accuracy by +7.14, +3.74, and +0.66 percentage points at the 1\%, 2\%, and 5\% annotation budgets, respectively. These results indicate that oracle corrections can serve not only as supervision for prompt learning, but also as useful feedback for future active sample acquisition.},
-  note={To appear.}
+  dimensions={true},
+  doi={10.1007/978-981-92-5699-0_26},
+  html={https://link.springer.com/chapter/10.1007/978-981-92-5699-0_26},
+  abstract={Vision-language models (VLMs) provide strong transferable representations for visual recognition, but adapting them to downstream image classification tasks remains challenging when labeled data are scarce. Active learning (AL) reduces annotation cost by selecting informative unlabeled samples for oracle labeling; however, most AL strategies use oracle feedback only to expand the labeled training set. The correction event between a model prediction and the oracle label is usually not reused to guide future acquisition. To address this limitation, we propose Correction-aware Tie-breaking (CorrTie), a lightweight post-acquisition reranker for AL with VLMs. CorrTie keeps the base AL strategy unchanged and uses past oracle corrections to estimate class-wise correction risk. This risk is then used to rerank near-tie candidates while preserving the original acquisition ranking as the primary signal. Experiments with CoOp prompt learning on four image classification benchmarks and five base AL strategies show that CorrTie improves the average accuracy by +7.14, +3.74, and +0.66 percentage points at the 1\%, 2\%, and 5\% annotation budgets, respectively. These results indicate that oracle corrections can serve not only as supervision for prompt learning, but also as useful feedback for future active sample acquisition.}
 }
 
 @article{TRANG2026124138,
