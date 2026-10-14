@@ -52,5 +52,8 @@
 "APWeb":
   url: https://conferences.sigappfr.org/apweb2026/
   color: "#215d42"
+"APSIPA ASC":
+  url: https://www.apsipa2026.org/
+  color: "#215d42"
 "Preprint":
   color: "#0d93bf"
