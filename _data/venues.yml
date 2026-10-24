@@ -55,5 +55,11 @@
 "APSIPA ASC":
   url: https://www.apsipa2026.org/
   color: "#215d42"
+"CSoNet":
+  url: https://csonet-conf.github.io/csonet26/index.html
+  color: "#215d42"
+"FISAT":
+  url: https://fisat.eai-conferences.org/2026
+  color: "#215d42"
 "Preprint":
   color: "#0d93bf"

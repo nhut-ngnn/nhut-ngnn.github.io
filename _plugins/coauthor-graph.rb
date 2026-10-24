@@ -64,7 +64,7 @@ module CoauthorGraph
 
   # "Nguyen, Nhut Minh" and "Nhut Minh Nguyen" both -> ["Nhut Minh", "Nguyen"]
   def split_name(raw)
-    name = clean(raw)
+    name = clean(raw.to_s.gsub(/[*∗†‡§¶‖&^]/, "")) # Nguyen† -> Nguyen (contribution marks)
     return nil if name.empty?
 
     if name.include?(",")

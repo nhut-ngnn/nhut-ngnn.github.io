@@ -1,5 +1,39 @@
 ---
 ---
+@INPROCEEDINGS{Nguyen2026FedMER,
+  abbr={CSoNet},
+  bibtex_show=True,
+  title = {A Federated Benchmark for Multimodal Emotion Recognition under Speaker-Level Data Heterogeneity},
+  author = {Nguyen †, Thu-Ky and Le †, Nhat Khanh and Nguyen †, Nhut Minh and Le, Ngoc-Khoa and Dang *, Duc Ngoc Minh},
+  annotation = {† Equal contribution, * Corresponding author},
+  year = {2026},
+  month = {November},
+  address = {Ho Chi Minh City, Vietnam},
+  booktitle = {Proceedings of The 15th International Conference on Computational Science and Network Intelligence},
+  selected = {false},
+  preview = {FedMER.jpg},
+  dimensions={false},
+  code={https://github.com/aita-lab/FedMER},
+  abstract={Multimodal Emotion Recognition (MER) has achieved significant progress under centralized training settings. However, centralized training poses substantial privacy risks because speech and textual data are inherently sensitive. Federated Learning enables collaborative training without sharing raw data, yet the behavior of different MER architectures under Federated Learning remains largely underexplored. This paper presents FedMER, a systematic benchmark of four MER architectures and five Federated Learning strategies under a unified speaker-shard non-independent and identically distributed (non-IID) protocol. We conduct experiments on two benchmark datasets, providing reproducible and comparable evaluations under realistic privacy-preserving conditions. The results demonstrate that optimization and aggregation techniques alone do not consistently mitigate the effects of speaker-level non-IID data. Federated Averaging (FedAvg) provides a strong and stable baseline, while Federated Normalized Averaging (FedNova) achieves comparable performance by correcting for unequal local training progress. In contrast, the proximal regularization used by Federated Proximal Optimization (FedProx) consistently degrades performance across both datasets. Techniques based on local normalization and prototype-guided aggregation provide benefits only under specific model-dataset combinations and do not universally outperform standard parameter averaging. Overall, fusion design remains an important determinant of recognition performance across the evaluated federated settings, while the remaining gap from centralized training indicates that speaker-level heterogeneity is not fully addressed by existing federated optimization techniques.},
+  note={To appear.}
+}
+
+@INPROCEEDINGS{Phan2026FISAT,
+  abbr={FISAT},
+  bibtex_show=True,
+  title = {Multimodal Disentangled Network with Alignment-Aggregation Decoupled Asymmetric Cross-Attention for Emotion Recognition},
+  author = {Phan, Quoc Anh and Nguyen, Nhut Minh and Dang, Duc Ngoc Minh},
+  year = {2026},
+  month = {November},
+  address = {Ho Chi Minh City, Vietnam},
+  booktitle = {Proceedings of 1st EAI FPT International Conference on Intelligent Systems and Advanced Technologies},
+  selected = {false},
+  preview = {Phan2026FISAT.png},
+  dimensions={false},
+  abstract={Multimodal emotion recognition (MER) with speech and text requires fusion that aligns modalities while preserving modality-specific emotional cues. We propose a Multimodal Disentangled Network with Alignment-Aggregation Decoupled Asymmetric Cross-Attention. It separates each modality into Private, Auxiliary, and Shared subspaces. Private branches retain fine-grained cues, Auxiliary branches learn Central Moment Discrepancy (CMD)-aligned task-relevant features, and the Shared branch captures modality-invariant patterns through the InfoNCE contrastive loss. Query and Key are computed from Auxiliary representations, whereas Value is drawn from Private representations, decoupling cross-modal correspondence estimation from content aggregation. Experiments on the Interactive Emotional Dyadic Motion Capture (IEMOCAP) and Multimodal EmotionLines Dataset (MELD) benchmarks show competitive results. On four-class IEMOCAP with five-fold Leave-One-Session-Out (LOSO), the model achieves 77.82% weighted accuracy (WA) and 79.03% unweighted accuracy (UA), best among compared methods. On seven-class MELD, it obtains 64.65% WA and 61.22% weighted F1 (WF1), outperforming most baselines and remaining competitive with state-of-the-art results. Ablations indicate that Auxiliary branches, asymmetric attention routing, and branch-specific supervision are key contributors. These results support decoupled alignment and aggregation as an effective principle for audio-text emotion recognition.},
+  note={To appear.}
+}
+
 @INPROCEEDINGS{Nguyen2026Prompt4MER,
   abbr={APSIPA ASC},
   bibtex_show=True,
@@ -42,7 +76,7 @@
   author = {Nguyen, Nhut Minh and Phan, Duc Tai and Dang, Duc Nguyen Huu and Nguyen, Thu Ky and Dang, Duc Ngoc Minh},
   year = {2026},
   month = {October},
-  address = {Quy Nhon City, Gia Lai Provide, Vietnam},
+  address = {Quy Nhon City, Gia Lai Province, Vietnam},
   booktitle = {Proceedings of 2026 International Conference on Advanced Technologies for Communications (ATC)},
   selected = {false},
   preview = {AURORA.png},
