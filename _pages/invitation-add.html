@@ -1,0 +1,102 @@
+---
+layout: none
+permalink: /invitation/add/
+title: Add guest
+nav: false
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0820">
+  <title>Thêm khách mời 🐈‍⬛</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐈‍⬛</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/invitation.css' | relative_url | bust_file_cache }}">
+  <script>
+    window.INVITE_PATHS = {
+      page: "{{ '/invitation/' | absolute_url }}",
+      files: "{{ '/assets/invitations' | relative_url }}",
+    };
+  </script>
+</head>
+<body class="invite-page is-open">
+  <div class="scene" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="chip" href="{{ '/invitation/' | relative_url }}"><i class="pxi" data-icon="back" data-scale="2"></i> Xem thiệp</a>
+  </nav>
+
+  <main class="admin">
+    <header class="admin-head px-box no-cat">
+      <p class="eyebrow">Chỉ dành cho Nhựt</p>
+      <h1 class="title">Thêm khách mời <i class="pxi" data-icon="paw" data-scale="4"></i></h1>
+      <p>Mỗi khách có một link riêng. Link luôn trỏ tới <code id="site"></code></p>
+    </header>
+
+    <!-- One guest -->
+    <section class="panel px-box no-cat">
+      <h2><i class="pxi" data-icon="plus" data-scale="4"></i> Thêm một khách</h2>
+      <p class="muted">Chọn loại link, nhập tên rồi bấm Thêm.</p>
+      <form id="add-form" autocomplete="off">
+        <div class="mode">
+          <label class="px-box">
+            <input type="radio" name="mode" value="secret" checked>
+            <b><i class="pxi" data-icon="lock"></i> Link bí mật</b>
+            <small>Link không lộ tên, có thể kèm ảnh thư riêng. Trang sẽ tải về một file <code>.bin</code>, bạn chép file đó vào <code>assets/invitations/</code> rồi push thì link mới chạy.</small>
+          </label>
+          <label class="px-box">
+            <input type="radio" name="mode" value="quick">
+            <b><i class="pxi" data-icon="bolt"></i> Link nhanh</b>
+            <small>Tên nằm trong link (<code>?to=...</code>). Dùng được ngay, không cần push gì.</small>
+          </label>
+        </div>
+        <label class="field">
+          <span>Tên khách</span>
+          <input id="name" class="px-input" type="text" placeholder="Nguyen Van A" maxlength="60" required>
+        </label>
+        <label id="drop" class="drop">
+          <input id="image" type="file" accept="image/png,image/jpeg,image/webp">
+          <i class="pxi" data-icon="download" data-scale="4"></i>
+          <span id="drop-text"><b>Ảnh thư riêng</b> (không bắt buộc): bấm để chọn hoặc kéo thả PNG/JPG vào đây</span>
+        </label>
+        <button class="btn primary" type="submit">&gt; Thêm khách</button>
+        <p id="add-note" class="note" role="status"></p>
+      </form>
+    </section>
+
+    <!-- Many guests -->
+    <section class="panel px-box no-cat">
+      <h2><i class="pxi" data-icon="bolt" data-scale="4"></i> Thêm nhanh nhiều khách</h2>
+      <p class="muted">Mỗi dòng một tên. Trang tạo link nhanh (<code>?to=...</code>) cho tất cả.</p>
+      <textarea id="bulk" class="px-input" placeholder="Nguyen Van A&#10;Tran Thi B"></textarea>
+      <button id="bulk-add" class="btn" type="button">&gt; Tạo link</button>
+    </section>
+
+    <!-- Guest list -->
+    <section class="panel px-box no-cat">
+      <h2><i class="pxi" data-icon="paw" data-scale="3"></i> Danh sách khách <span id="count" class="tag"></span></h2>
+      <p class="muted">Danh sách lưu trong trình duyệt này. Muốn gom cả khách tạo bằng <code>bin/encrypt_invitations.py</code> thì bấm Nhập CSV và chọn file <code>invitation_links.csv</code> do script xuất ra.</p>
+      <div class="row">
+        <button id="copy-all" class="btn small" type="button"><i class="pxi" data-icon="copy" data-scale="2"></i> Copy tất cả</button>
+        <button id="export" class="btn small" type="button"><i class="pxi" data-icon="download" data-scale="2"></i> Xuất CSV</button>
+        <label class="btn small"><input id="import" type="file" accept=".csv,text/csv" hidden><i class="pxi" data-icon="plus" data-scale="2"></i> Nhập CSV</label>
+        <span class="grow"></span>
+        <button id="recheck" class="link-btn" type="button">&gt; Kiểm tra file</button>
+      </div>
+      <ul id="guests" class="guests"></ul>
+    </section>
+  </main>
+
+  <script src="{{ '/assets/js/invitation-config.js' | relative_url | bust_file_cache }}"></script>
+  <script src="{{ '/assets/js/invitation-crypto.js' | relative_url | bust_file_cache }}"></script>
+  <script src="{{ '/assets/js/invitation-pixel.js' | relative_url | bust_file_cache }}"></script>
+  <script src="{{ '/assets/js/invitation-cat.js' | relative_url | bust_file_cache }}"></script>
+  <script src="{{ '/assets/js/invitation-add.js' | relative_url | bust_file_cache }}"></script>
+</body>
+</html>

@@ -118,7 +118,7 @@ window.InviteWordGame = (function () {
           key.classList.add("wide");
           key.addEventListener("click", submit);
         } else if (ch === "-") {
-          key.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
+          key.textContent = "DEL";
           key.setAttribute("aria-label", "Backspace");
           key.classList.add("wide");
           key.addEventListener("click", backspace);
@@ -230,7 +230,7 @@ window.InviteWordGame = (function () {
   function shareText() {
     const grid = state.guesses.map((g) => score(g).map((s) => EMOJI[s]).join("")).join("\n");
     const outcome = state.won ? `${state.guesses.length}/${TRIES} in ${formatTime(state.elapsed)}` : `X/${TRIES} (${formatTime(state.elapsed)})`;
-    return `🎓 Nhut's Graduation Word Game\n${name}: ${outcome}\n${grid}`;
+    return `🐈‍⬛ Nhut's Graduation Word Game\n${name}: ${outcome}\n${grid}`;
   }
 
   function showResult(fresh) {
@@ -256,12 +256,12 @@ window.InviteWordGame = (function () {
         return;
       }
       await navigator.clipboard.writeText(text);
-      button.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+      button.textContent = "Copied! ✓";
     } catch (err) {
       if (err.name === "AbortError") return;
       window.prompt("Copy your result:", text);
     }
-    setTimeout(() => (button.innerHTML = '<i class="fa-solid fa-share-nodes"></i> Copy result'), 2000);
+    setTimeout(() => (button.textContent = "Copy result"), 2000);
   }
 
   function onKey(event) {
