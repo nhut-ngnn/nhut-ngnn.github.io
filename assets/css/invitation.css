@@ -330,7 +330,8 @@ main { position: relative; z-index: 1; }
 
 .cat-bubble {
   position: absolute;
-  bottom: calc(100% + 18px);
+  z-index: 5; /* always above the cat sprite, even mid-jump */
+  bottom: calc(100% + 34px); /* clear of the 28px hop */
   left: 50%;
   transform: translateX(-50%);
   padding: 0.05rem 0.7rem;
@@ -351,12 +352,12 @@ main { position: relative; z-index: 1; }
   height: 8px;
   margin-left: calc(-4px - var(--shift, 0px));
   background: var(--edge);
-  box-shadow: 4px 8px 0 0 var(--edge);
+  box-shadow: 4px 8px 0 0 var(--edge), 0 16px 0 0 var(--edge);
 }
 .cat-bubble.pop { animation: bubble-pop 0.24s steps(3); }
 @keyframes bubble-pop { from { transform: translateX(-50%) scale(0.3); } }
 
-.cat-zzz { position: absolute; right: 18%; top: -8px; display: none; pointer-events: none; }
+.cat-zzz { position: absolute; z-index: 5; right: 18%; top: -8px; display: none; pointer-events: none; }
 .cat.sleeping .cat-zzz { display: block; }
 .cat-zzz span { position: absolute; color: var(--muted); font-size: 1.3rem; opacity: 0; animation: zzz 3s steps(6) infinite; }
 .cat-zzz span:nth-child(2) { animation-delay: 1s; font-size: 1.5rem; }
