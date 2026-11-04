@@ -221,11 +221,12 @@ window.InviteCat = (function () {
   function say(text, ms) {
     bubble.textContent = text;
     bubble.hidden = false;
+    // Above the head by default; under the cat if that would run off the top of the screen.
+    bubble.classList.toggle("below", y - H - 8 - bubble.offsetHeight < 8);
     // Keep the bubble on screen near the edges.
     const half = bubble.offsetWidth / 2;
     const shift = x - half < 8 ? 8 - (x - half) : x + half > innerWidth - 8 ? innerWidth - 8 - (x + half) : 0;
     bubble.style.marginLeft = snap(shift) + "px";
-    bubble.style.setProperty("--shift", snap(shift) + "px");
     bubble.classList.remove("pop");
     void bubble.offsetWidth;
     bubble.classList.add("pop");

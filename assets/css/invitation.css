@@ -330,8 +330,8 @@ main { position: relative; z-index: 1; }
 
 .cat-bubble {
   position: absolute;
-  z-index: 5; /* always above the cat sprite, even mid-jump */
-  bottom: calc(100% + 34px); /* clear of the 28px hop */
+  z-index: 5; /* always above the cat sprite */
+  bottom: calc(100% + 8px); /* right on top of the cap */
   left: 50%;
   transform: translateX(-50%);
   padding: 0.05rem 0.7rem;
@@ -343,19 +343,13 @@ main { position: relative; z-index: 1; }
   color: var(--ink);
   pointer-events: none;
 }
-.cat-bubble::after {
-  content: "";
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  margin-left: calc(-4px - var(--shift, 0px));
-  background: var(--edge);
-  box-shadow: 4px 8px 0 0 var(--edge), 0 16px 0 0 var(--edge);
-}
+/* Near the top of the screen the bubble goes under the cat instead */
+.cat-bubble.below { bottom: auto; top: calc(100% + 12px); }
 .cat-bubble.pop { animation: bubble-pop 0.24s steps(3); }
 @keyframes bubble-pop { from { transform: translateX(-50%) scale(0.3); } }
+/* The bubble hops with the cat so the cap never pokes into it */
+.cat.jump .cat-bubble { animation: hop 0.4s steps(4); }
+.cat.jump .cat-bubble.pop { animation: bubble-pop 0.24s steps(3), hop 0.4s steps(4); }
 
 .cat-zzz { position: absolute; z-index: 5; right: 18%; top: -8px; display: none; pointer-events: none; }
 .cat.sleeping .cat-zzz { display: block; }
